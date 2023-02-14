@@ -64,7 +64,7 @@ class LoginViewController: UIViewController, UITextViewDelegate, ASAuthorization
         LoginWithApple.titleLabel?.font = UIFont(name: "Inter-Black", size:17)
         LogInWithGoogle.setTitle(constants.LoginWithGoogleTitle, for: .normal)
         LogInWithGoogle.tintColor = .black
-        LoginWithApple.backgroundColor = .white
+        LoginWithApple.backgroundColor = UIColor.systemRed
         LoginWithApple.layer.cornerRadius = 7
         LoginWithApple.setImage(UIImage(named: "Apple"), for: .normal)
         LoginWithApple.setTitle(constants.LoginWithAppleTitle, for: .normal)
