@@ -11,13 +11,13 @@ import UIKit
 import FirebaseAuth
 class AuthenticationHandler{
     static var Shared = AuthenticationHandler()
-    func SignInWithGoogle(Controller:UIViewController, completionHandler: @escaping (String?)-> Void){
+    func SignInWithGoogle(Controller:UIViewController, completionHandler: @escaping (String?,Bool)-> Void){
         GIDSignIn.sharedInstance.signIn(withPresenting: Controller){signinResults,error in
             if let error = error{
                 print(error)
-                completionHandler(error.localizedDescription)
+                completionHandler(error.localizedDescription,false)
             }
-            completionHandler(signinResults?.user.userID)
+            completionHandler(signinResults?.user.userID,true)
         }
     }
     func SigninWithEmail(with email:String,password:String,controller:UIViewController,completionHanlder: @escaping (AuthDataResult?,Error?)->Void){
@@ -32,5 +32,7 @@ class AuthenticationHandler{
             }
             completionHanlder(AUTHDATA)
         }
+    }
+    func SignInWithApple(){
     }
 }
