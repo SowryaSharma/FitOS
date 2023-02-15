@@ -54,24 +54,26 @@ class LoginViewController: UIViewController, UITextViewDelegate, ASAuthorization
 
     }
     func setUI() {
-        guard let backgroundImage = UIImage(named: "BG") else{
+        guard let backgroundImage = UIImage(named: "BG")?.cgImage else{
             return
         }
-        self.view.backgroundColor = UIColor(patternImage: backgroundImage)
+        self.view.layer.contents = backgroundImage
+        self.view.layer.contentsGravity = CALayerContentsGravity.resize
+//        self.view.backgroundColor = UIColor(patternImage: backgroundImage)
         LogInWithGoogle.backgroundColor = .white
         LogInWithGoogle.layer.cornerRadius = 7
         LogInWithGoogle.setImage(UIImage(named: "google_ic"), for: .normal)
         LoginWithApple.titleLabel?.font = UIFont(name: "Inter-Black", size:17)
         LogInWithGoogle.setTitle(constants.LoginWithGoogleTitle, for: .normal)
-        LogInWithGoogle.tintColor = .black
-        LoginWithApple.backgroundColor = UIColor.systemRed
+        LogInWithGoogle.setTitleColor(UIColor.black, for: .normal)
+        LoginWithApple.backgroundColor = .white
         LoginWithApple.layer.cornerRadius = 7
         LoginWithApple.setImage(UIImage(named: "Apple"), for: .normal)
         LoginWithApple.setTitle(constants.LoginWithAppleTitle, for: .normal)
-        LoginWithApple.tintColor = .black
+        LoginWithApple.setTitleColor(UIColor.black, for: .normal)
         LogginwithEmail.layer.cornerRadius = 7
         LogginwithEmail.backgroundColor = .white
-        LogginwithEmail.tintColor = .black
+        LogginwithEmail.setTitleColor(UIColor.black, for: .normal)
         LogginwithEmail.setImage(UIImage(named: "mail"), for: .normal)
         LogginwithEmail.setTitle(constants.LoginWithEmailTitle, for: .normal)
         OrLabel.text = "or continue with"
@@ -154,6 +156,23 @@ class LoginViewController: UIViewController, UITextViewDelegate, ASAuthorization
         print("ActionButtonLoginEmail")
         let signinVC = storyboard?.instantiateViewController(withIdentifier: "SignInWithEmail") as! SignInWithEmailViewController
         navigationController?.pushViewController(signinVC, animated: true)
+    }
+    
+    @IBAction func termsOfServiceBtnTap(_ sender: UIButton) {
+        let VC = storyboard?.instantiateViewController(withIdentifier: "LocalWebViewVC") as! LocalWebViewVC
+        VC.modalPresentationStyle = .fullScreen
+        VC.whatToShow = "termsAndConditions"
+        VC.headerLabelText = "FITOS Terms & Conditions"
+//        self.present(VC, animated: true)
+        self.navigationController?.pushViewController(VC, animated: true)
+    }
+    
+    @IBAction func privacyPolicyBtnTap(_ sender: UIButton) {
+        let VC = storyboard?.instantiateViewController(withIdentifier: "LocalWebViewVC") as! LocalWebViewVC
+        VC.modalPresentationStyle = .fullScreen
+        VC.whatToShow = "privacyPolicy"
+        VC.headerLabelText = "FITOS Privacy Policy"
+        self.navigationController?.pushViewController(VC, animated: true)
     }
 }
 extension LoginViewController:ASAuthorizationControllerDelegate{
@@ -258,6 +277,7 @@ extension LoginViewController:ASAuthorizationControllerDelegate{
       }
 
     }
+    
 }
 
 

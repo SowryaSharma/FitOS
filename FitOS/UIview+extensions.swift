@@ -25,4 +25,9 @@ extension UIView {
     }
 }
 
+@IBDesignable
+public class GradientButton: UIButton {
+    
+}
+
 
