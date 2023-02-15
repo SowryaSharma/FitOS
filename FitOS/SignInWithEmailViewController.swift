@@ -57,6 +57,12 @@ class SignInWithEmailViewController: UIViewController {
                 if let AuthResult = AuthResult {
                     AuthResult.user.getIDToken { token, error in
                         print(token ?? error)
+                        networkService.shared.Post(withEndppoint: constants.SigniNEndpoints, param: nil) { status, error, response, data in
+                            if(response == 201){
+                                let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                                self.navigationController?.pushViewController(vc, animated: true)
+                            }
+                        }
                     }
                     print(GIDSignIn.sharedInstance.currentUser?.accessToken)
                     print(AuthResult.user.getIDToken())

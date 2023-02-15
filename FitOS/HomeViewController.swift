@@ -16,6 +16,7 @@ class HomeViewController: UIViewController {
     }
     @IBAction func actionButtonLogout(_ sender: Any) {
         GIDSignIn.sharedInstance.signOut()
+        navigationController?.navigationItem.titleView?.isHidden = true
         guard let navigationController = navigationController else {return}
         var count = navigationController.viewControllers.count-1
         var navigationarray = navigationController.viewControllers
