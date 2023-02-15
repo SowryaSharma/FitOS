@@ -29,6 +29,27 @@ class SignInWithEmailViewController: UIViewController {
         AuthenticationHandler.Shared.SignUpWithEmail(with: "sowryasharma@gmail.com", password: "password", controller: self) { results in
             print(results)
         }
+        let gradient = CAGradientLayer()
+        var bounds = SignInButton.bounds
+        bounds.size.height += UIApplication.shared.statusBarFrame.size.height
+        gradient.frame = bounds
+        gradient.colors = [UIColor.red.cgColor, UIColor.blue.cgColor]
+        gradient.startPoint = CGPoint(x: 0, y: 0)
+        gradient.endPoint = CGPoint(x: 1, y: 0)
+//        let layer0 = CAGradientLayer()
+//        layer0.colors = [
+//          UIColor(red: 0.404, green: 0.027, blue: 0.878, alpha: 1).cgColor,
+//          UIColor(red: 1, green: 0.38, blue: 0.863, alpha: 1).cgColor
+//        ]
+//        layer0.locations = [0, 1]
+//        layer0.startPoint = CGPoint(x: 0.25, y: 0.5)
+//        layer0.endPoint = CGPoint(x: 0.75, y: 0.5)
+//        layer0.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: 0.98, b: 0.95, c: -0.95, d: 1.35, tx: 0.48, ty: -0.65))
+//        layer0.bounds = SignInButton.bounds.insetBy(dx: -0.5*SignInButton.bounds.size.width, dy: -0.5*SignInButton.bounds.size.height)
+//        layer0.position = SignInButton.center
+//        SignInButton.layer.addSublayer(layer0)
+//        SignInButton.layer.cornerRadius = 8
+//        SignInButton.applyGradient(colours: [constants.buttonGradientColor1,constants.buttonGradientColor2], locations: [0.0, 0.5, 1.0])
     }
     @objc private func keyboardWillShow(notification: NSNotification){
         if(!isKeyboardPresent){
