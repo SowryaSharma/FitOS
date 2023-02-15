@@ -16,6 +16,7 @@
 		6912DB84298FCA0B006F8C03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6912DB82298FCA0B006F8C03 /* LaunchScreen.storyboard */; };
 		6912DB8F2992430D006F8C03 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6912DB8E2992430D006F8C03 /* Constants.swift */; };
 		6912DB9129928334006F8C03 /* SignInWithEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6912DB9029928334006F8C03 /* SignInWithEmailViewController.swift */; };
+		69297796299CDF4800E0ED1A /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69297795299CDF4800E0ED1A /* NetworkHandler.swift */; };
 		693F561D2995126300E61D7E /* UIview+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693F561C2995126300E61D7E /* UIview+extensions.swift */; };
 		693F561F2995297700E61D7E /* exampleSwiftui.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693F561E2995297700E61D7E /* exampleSwiftui.swift */; };
 		693F56412996578100E61D7E /* Createprofile1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693F56402996578100E61D7E /* Createprofile1ViewController.swift */; };
@@ -49,6 +50,7 @@
 		6912DB9A29928628006F8C03 /* Inter-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.ttf"; sourceTree = "<group>"; };
 		6912DB9B29928628006F8C03 /* Inter-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraLight.ttf"; sourceTree = "<group>"; };
 		6912DB9C2992862E006F8C03 /* Inter-VariableFont_slnt,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-VariableFont_slnt,wght.ttf"; sourceTree = "<group>"; };
+		69297795299CDF4800E0ED1A /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		693F561C2995126300E61D7E /* UIview+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIview+extensions.swift"; sourceTree = "<group>"; };
 		693F561E2995297700E61D7E /* exampleSwiftui.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exampleSwiftui.swift; sourceTree = "<group>"; };
 		693F563F29963F8B00E61D7E /* FitOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FitOS.entitlements; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				693F56422996579600E61D7E /* Createprofile2ViewController.swift */,
 				69CA930D2999F66400F79FF3 /* NetworkHandlers.swift */,
 				696F1EE4299A40EB004D56E5 /* HomeViewController.swift */,
+				69297795299CDF4800E0ED1A /* NetworkHandler.swift */,
 			);
 			path = FitOS;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				693F56412996578100E61D7E /* Createprofile1ViewController.swift in Sources */,
 				696F1EE5299A40EB004D56E5 /* HomeViewController.swift in Sources */,
 				6912DB8F2992430D006F8C03 /* Constants.swift in Sources */,
+				69297796299CDF4800E0ED1A /* NetworkHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

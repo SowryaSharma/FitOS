@@ -17,4 +17,6 @@ public class constants : NSObject{
     public static var SigninWithEmailImageFrame = "Frame"
     public static var buttonGradientColor1 = UIColor(red: 103/255, green: 7/255, blue: 224/255, alpha: 1.0)
     public static var buttonGradientColor2 = UIColor(red: 255/255, green: 97/255, blue: 220/255, alpha: 1.0)
+    public static var BaseUrl = "http://18.207.101.142:8000/"
+    public static var SigniNEndpoints = "user/social_login"
 }
