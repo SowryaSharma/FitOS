@@ -16,8 +16,9 @@ class AuthenticationHandler{
             if let error = error{
                 print(error)
                 completionHandler(error.localizedDescription,false)
+                return
             }
-            completionHandler(signinResults?.user.userID,true)
+            completionHandler(signinResults?.user.idToken?.tokenString,true)
         }
     }
     func SigninWithEmail(with email:String,password:String,controller:UIViewController,completionHanlder: @escaping (AuthDataResult?,Error?)->Void){
@@ -29,6 +30,7 @@ class AuthenticationHandler{
         Auth.auth().createUser(withEmail: email, password: password) { AUTHDATA, ERROR in
             if let ERROR = ERROR{
                 print(ERROR.localizedDescription)
+                return
             }
             completionHanlder(AUTHDATA)
         }

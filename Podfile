@@ -7,7 +7,7 @@ target 'FitOS' do
 
 pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
-pod 'GoogleSignIn'
+pod 'GoogleSignIn', '~>7.0.0'
 pod 'Toast-Swift', '~> 5.0.1'
 
 end

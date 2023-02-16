@@ -22,6 +22,8 @@ class SignInWithEmailViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var HeaderImageview: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        EmailTextField.delegate = self
+        PasswordTextfield.delegate = self
         self.navigationController?.navigationBar.backItem?.title = "f"
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardDidShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardDidHideNotification, object: nil)
@@ -73,14 +75,14 @@ class SignInWithEmailViewController: UIViewController,UITextFieldDelegate {
 //                        networkService.shared.Post(withEndppoint: constants.SigniNEndpoints, tokenString: token!, param: nil) { status, statuscode in
                         networkService.shared.SignIn(withToken: token) { status,statuscode in
                             if(status){
-                            if(statuscode == 201){
-                                DispatchQueue.main.sync {
+                            if(statuscode == 200){
+                                DispatchQueue.main.async {
                                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
                                 self.navigationController?.pushViewController(vc, animated: true)
                                 }
                             }
-                            else if(statuscode == 200){
-                                DispatchQueue.main.sync {
+                            else if(statuscode == 201){
+                                DispatchQueue.main.async {
                                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "Createprofile1ViewController") as! Createprofile1ViewController
                                 self.navigationController?.pushViewController(vc, animated: true)
                                 }
