@@ -38,7 +38,7 @@ class HomeViewController: UIViewController {
             // Show the app's signed-in state.
               print("signed in")
               print(user?.profile?.email)
-              self.label.text = "Signed in As \(user?.profile?.email ?? "")"
+              self.label.text = "Signed in as \(user?.profile?.name ?? "")"
           }
         }
 

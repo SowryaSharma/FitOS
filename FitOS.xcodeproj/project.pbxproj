@@ -22,6 +22,8 @@
 		693F56412996578100E61D7E /* Createprofile1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693F56402996578100E61D7E /* Createprofile1ViewController.swift */; };
 		693F56432996579600E61D7E /* Createprofile2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693F56422996579600E61D7E /* Createprofile2ViewController.swift */; };
 		69443FA1299C9E7D00702F0E /* LocalWebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69443FA0299C9E7D00702F0E /* LocalWebViewVC.swift */; };
+		694709EB299E0B7D00D07BBB /* PaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694709EA299E0B7D00D07BBB /* PaddedTextField.swift */; };
+		694709ED299E0BA100D07BBB /* GradientColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694709EC299E0BA100D07BBB /* GradientColorButton.swift */; };
 		696F1EE5299A40EB004D56E5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696F1EE4299A40EB004D56E5 /* HomeViewController.swift */; };
 		69BEB1CD299DFE6100A8F248 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69BEB1CC299DFE6100A8F248 /* GoogleService-Info.plist */; };
 		69BEB1CF299DFE9E00A8F248 /* UiUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BEB1CE299DFE9E00A8F248 /* UiUtils.swift */; };
@@ -57,6 +59,8 @@
 		693F56402996578100E61D7E /* Createprofile1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Createprofile1ViewController.swift; sourceTree = "<group>"; };
 		693F56422996579600E61D7E /* Createprofile2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Createprofile2ViewController.swift; sourceTree = "<group>"; };
 		69443FA0299C9E7D00702F0E /* LocalWebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalWebViewVC.swift; sourceTree = "<group>"; };
+		694709EA299E0B7D00D07BBB /* PaddedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedTextField.swift; sourceTree = "<group>"; };
+		694709EC299E0BA100D07BBB /* GradientColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientColorButton.swift; sourceTree = "<group>"; };
 		696F1EE4299A40EB004D56E5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		69BEB1CC299DFE6100A8F248 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		69BEB1CE299DFE9E00A8F248 /* UiUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiUtils.swift; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 				6912DB8B29921F78006F8C03 /* views */,
 				6912DB77298FCA08006F8C03 /* AppDelegate.swift */,
 				69443F9F299C9E4000702F0E /* LocalWebViews */,
+				694709E9299E0B5B00D07BBB /* IBDesignableClasses */,
 				6912DB79298FCA08006F8C03 /* SceneDelegate.swift */,
 				6912DB80298FCA0B006F8C03 /* Assets.xcassets */,
 				6912DB85298FCA0B006F8C03 /* Info.plist */,
@@ -167,6 +172,15 @@
 				69443FA0299C9E7D00702F0E /* LocalWebViewVC.swift */,
 			);
 			path = LocalWebViews;
+			sourceTree = "<group>";
+		};
+		694709E9299E0B5B00D07BBB /* IBDesignableClasses */ = {
+			isa = PBXGroup;
+			children = (
+				694709EA299E0B7D00D07BBB /* PaddedTextField.swift */,
+				694709EC299E0BA100D07BBB /* GradientColorButton.swift */,
+			);
+			path = IBDesignableClasses;
 			sourceTree = "<group>";
 		};
 		69BEB1D0299DFF8D00A8F248 /* OnboardingFlow */ = {
@@ -331,10 +345,12 @@
 				6912DB78298FCA08006F8C03 /* AppDelegate.swift in Sources */,
 				6912DB7A298FCA08006F8C03 /* SceneDelegate.swift in Sources */,
 				69BEB1CF299DFE9E00A8F248 /* UiUtils.swift in Sources */,
+				694709ED299E0BA100D07BBB /* GradientColorButton.swift in Sources */,
 				6912DB9129928334006F8C03 /* SignInWithEmailViewController.swift in Sources */,
 				69DDE6562994C9F4003900E6 /* AuthenticationHandler.swift in Sources */,
 				693F561F2995297700E61D7E /* exampleSwiftui.swift in Sources */,
 				693F56432996579600E61D7E /* Createprofile2ViewController.swift in Sources */,
+				694709EB299E0B7D00D07BBB /* PaddedTextField.swift in Sources */,
 				693F56412996578100E61D7E /* Createprofile1ViewController.swift in Sources */,
 				696F1EE5299A40EB004D56E5 /* HomeViewController.swift in Sources */,
 				6912DB8F2992430D006F8C03 /* Constants.swift in Sources */,
@@ -400,6 +416,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -460,6 +477,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

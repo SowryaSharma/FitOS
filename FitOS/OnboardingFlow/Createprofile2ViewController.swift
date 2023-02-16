@@ -12,13 +12,18 @@ class Createprofile2ViewController: UIViewController {
     @IBOutlet weak var usernameTextfield: UITextField!
     @IBOutlet weak var lastnametextfield: UITextField!
     @IBOutlet weak var firstnametextfield: UITextField!
+    @IBOutlet weak var continueBtn: GradientButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardDidShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardDidHideNotification, object: nil)
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func backBtnTap(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
     @IBAction func ActionButtonContinue(_ sender: Any) {
         if(usernameTextfield.text != nil){
         let vc = storyboard?.instantiateViewController(withIdentifier: "canWeContactViewController") as! canWeContactViewController

@@ -78,9 +78,6 @@ extension UIColor {
 }
 
 
-@IBDesignable
-public class GradientButton: UIButton {
-    
-}
+
 
 

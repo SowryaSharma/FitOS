@@ -132,7 +132,7 @@ class LoginViewController: UIViewController, UITextViewDelegate, ASAuthorization
                         }
                     }
                     else{
-                        print("failre")
+                        print("failure")
                     }
                 }
             }

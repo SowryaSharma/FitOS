@@ -16,12 +16,13 @@ class SignInWithEmailViewController: UIViewController,UITextFieldDelegate {
     var password:String?
     @IBOutlet weak var Signin_upLabel: UILabel!
     @IBOutlet weak var SignUpButton: UIButton!
-    @IBOutlet weak var SignInButton: UIButton!
     @IBOutlet weak var PasswordTextfield: UITextField!
     @IBOutlet weak var EmailTextField: UITextField!
+    @IBOutlet weak var SignInButton: GradientButton!
     @IBOutlet weak var HeaderImageview: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.navigationBar.backItem?.title = "f"
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardDidShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardDidHideNotification, object: nil)
@@ -33,6 +34,10 @@ class SignInWithEmailViewController: UIViewController,UITextFieldDelegate {
         }
         let gradient = CAGradientLayer()
         var bounds = SignInButton.bounds
+    }
+    
+    @IBAction func backBtnTap(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return true
@@ -94,7 +99,6 @@ class SignInWithEmailViewController: UIViewController,UITextFieldDelegate {
                             }
                         }
                     }
-                    print(GIDSignIn.sharedInstance.currentUser?.accessToken)
                     print(AuthResult.user.getIDToken())
                 }
             }
