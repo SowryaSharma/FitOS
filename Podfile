@@ -5,9 +5,9 @@ target 'FitOS' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'Firebase/Core'
 pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 pod 'GoogleSignIn'
+pod 'Toast-Swift', '~> 5.0.1'
 
 end

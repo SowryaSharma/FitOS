@@ -7,39 +7,22 @@
 
 import UIKit
 
-class Createprofile1ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
+class Createprofile1ViewController: UIViewController {
     var AgeData: [String] = [String]()
     var genderData:[String] = [String]()
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if(pickerView.tag == 1){
-        return AgeData.count
-        }
-        else{
-            return genderData.count
-        }
-    }
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if(pickerView.tag == 1){
-        return AgeData[row]
-        }
-        else{
-            return genderData[row]
-        }
-    }
-    
+    @IBOutlet weak var ageDropDownButton: UIButton!
+    @IBOutlet weak var ageTextField: UITextField!
+    @IBOutlet weak var AgeView: UIView!
     var email:String = ""
     @IBOutlet weak var GenderPickerView: UIPickerView!
     @IBOutlet weak var AgePickerView: UIPickerView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        AgePickerView.delegate = self
-        AgePickerView.dataSource = self
-        GenderPickerView.delegate = self
-        GenderPickerView.dataSource = self
+        ageDropDownButton.setTitle("", for: .normal)
+        AgeView.layer.borderWidth = 2
+        AgeView.layer.borderColor = UIColor.black.cgColor
+        ageTextField.layer.borderWidth = 0
         AgeData = ["Below 18", "18-24","25-34","35-44","45-54","55-64","above 64"]
         genderData = ["Male","Female","Others","Prefer not to say"]
         // Do any additional setup after loading the view.

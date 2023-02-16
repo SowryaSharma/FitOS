@@ -23,10 +23,10 @@
 		693F56432996579600E61D7E /* Createprofile2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693F56422996579600E61D7E /* Createprofile2ViewController.swift */; };
 		69443FA1299C9E7D00702F0E /* LocalWebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69443FA0299C9E7D00702F0E /* LocalWebViewVC.swift */; };
 		696F1EE5299A40EB004D56E5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696F1EE4299A40EB004D56E5 /* HomeViewController.swift */; };
-		69CA930E2999F66400F79FF3 /* NetworkHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CA930D2999F66400F79FF3 /* NetworkHandlers.swift */; };
+		69BEB1CD299DFE6100A8F248 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69BEB1CC299DFE6100A8F248 /* GoogleService-Info.plist */; };
+		69BEB1CF299DFE9E00A8F248 /* UiUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BEB1CE299DFE9E00A8F248 /* UiUtils.swift */; };
 		69CA9331299A253600F79FF3 /* ContactPermissionViewControllerr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CA9330299A253500F79FF3 /* ContactPermissionViewControllerr.swift */; };
 		69DDE6562994C9F4003900E6 /* AuthenticationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DDE6552994C9F4003900E6 /* AuthenticationHandler.swift */; };
-		69DED9C9299BC2CD001B3083 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69DED9C8299BC2CD001B3083 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,10 +58,10 @@
 		693F56422996579600E61D7E /* Createprofile2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Createprofile2ViewController.swift; sourceTree = "<group>"; };
 		69443FA0299C9E7D00702F0E /* LocalWebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalWebViewVC.swift; sourceTree = "<group>"; };
 		696F1EE4299A40EB004D56E5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		69CA930D2999F66400F79FF3 /* NetworkHandlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandlers.swift; sourceTree = "<group>"; };
+		69BEB1CC299DFE6100A8F248 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		69BEB1CE299DFE9E00A8F248 /* UiUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiUtils.swift; sourceTree = "<group>"; };
 		69CA9330299A253500F79FF3 /* ContactPermissionViewControllerr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactPermissionViewControllerr.swift; sourceTree = "<group>"; };
 		69DDE6552994C9F4003900E6 /* AuthenticationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationHandler.swift; sourceTree = "<group>"; };
-		69DED9C8299BC2CD001B3083 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		69DED9CB299BC30B001B3083 /* FitOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FitOS.entitlements; sourceTree = "<group>"; };
 		7F91BE94A8225400B8B9588E /* Pods-FitOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitOS.debug.xcconfig"; path = "Target Support Files/Pods-FitOS/Pods-FitOS.debug.xcconfig"; sourceTree = "<group>"; };
 		E1CF9B0958D13A777C65330C /* Pods-FitOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitOS.release.xcconfig"; path = "Target Support Files/Pods-FitOS/Pods-FitOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -100,6 +100,8 @@
 		6912DB76298FCA08006F8C03 /* FitOS */ = {
 			isa = PBXGroup;
 			children = (
+				69BEB1D1299DFFBE00A8F248 /* UI+extensions */,
+				69BEB1D0299DFF8D00A8F248 /* OnboardingFlow */,
 				69DED9CB299BC30B001B3083 /* FitOS.entitlements */,
 				6912DB9229928601006F8C03 /* Fonts */,
 				6912DB8D29921F88006F8C03 /* view Models */,
@@ -108,23 +110,12 @@
 				6912DB77298FCA08006F8C03 /* AppDelegate.swift */,
 				69443F9F299C9E4000702F0E /* LocalWebViews */,
 				6912DB79298FCA08006F8C03 /* SceneDelegate.swift */,
-				6912DB7B298FCA08006F8C03 /* LoginViewController.swift */,
-				6912DB9029928334006F8C03 /* SignInWithEmailViewController.swift */,
-				6912DB7D298FCA08006F8C03 /* Main.storyboard */,
 				6912DB80298FCA0B006F8C03 /* Assets.xcassets */,
-				6912DB82298FCA0B006F8C03 /* LaunchScreen.storyboard */,
 				6912DB85298FCA0B006F8C03 /* Info.plist */,
 				6912DB8E2992430D006F8C03 /* Constants.swift */,
-				69DDE6552994C9F4003900E6 /* AuthenticationHandler.swift */,
-				69DED9C8299BC2CD001B3083 /* GoogleService-Info.plist */,
-				693F561C2995126300E61D7E /* UIview+extensions.swift */,
+				69BEB1CC299DFE6100A8F248 /* GoogleService-Info.plist */,
 				693F561E2995297700E61D7E /* exampleSwiftui.swift */,
-				69CA9330299A253500F79FF3 /* ContactPermissionViewControllerr.swift */,
-				693F56402996578100E61D7E /* Createprofile1ViewController.swift */,
-				693F56422996579600E61D7E /* Createprofile2ViewController.swift */,
-				69CA930D2999F66400F79FF3 /* NetworkHandlers.swift */,
 				696F1EE4299A40EB004D56E5 /* HomeViewController.swift */,
-				69297795299CDF4800E0ED1A /* NetworkHandler.swift */,
 			);
 			path = FitOS;
 			sourceTree = "<group>";
@@ -132,6 +123,8 @@
 		6912DB8B29921F78006F8C03 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				6912DB7D298FCA08006F8C03 /* Main.storyboard */,
+				6912DB82298FCA0B006F8C03 /* LaunchScreen.storyboard */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -146,6 +139,7 @@
 		6912DB8D29921F88006F8C03 /* view Models */ = {
 			isa = PBXGroup;
 			children = (
+				69297795299CDF4800E0ED1A /* NetworkHandler.swift */,
 			);
 			path = "view Models";
 			sourceTree = "<group>";
@@ -173,6 +167,28 @@
 				69443FA0299C9E7D00702F0E /* LocalWebViewVC.swift */,
 			);
 			path = LocalWebViews;
+			sourceTree = "<group>";
+		};
+		69BEB1D0299DFF8D00A8F248 /* OnboardingFlow */ = {
+			isa = PBXGroup;
+			children = (
+				6912DB7B298FCA08006F8C03 /* LoginViewController.swift */,
+				693F56402996578100E61D7E /* Createprofile1ViewController.swift */,
+				6912DB9029928334006F8C03 /* SignInWithEmailViewController.swift */,
+				69DDE6552994C9F4003900E6 /* AuthenticationHandler.swift */,
+				693F56422996579600E61D7E /* Createprofile2ViewController.swift */,
+				69CA9330299A253500F79FF3 /* ContactPermissionViewControllerr.swift */,
+			);
+			path = OnboardingFlow;
+			sourceTree = "<group>";
+		};
+		69BEB1D1299DFFBE00A8F248 /* UI+extensions */ = {
+			isa = PBXGroup;
+			children = (
+				69BEB1CE299DFE9E00A8F248 /* UiUtils.swift */,
+				693F561C2995126300E61D7E /* UIview+extensions.swift */,
+			);
+			path = "UI+extensions";
 			sourceTree = "<group>";
 		};
 		7B3130BFE9601C7C2803544A /* Frameworks */ = {
@@ -253,7 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6912DB84298FCA0B006F8C03 /* LaunchScreen.storyboard in Resources */,
-				69DED9C9299BC2CD001B3083 /* GoogleService-Info.plist in Resources */,
+				69BEB1CD299DFE6100A8F248 /* GoogleService-Info.plist in Resources */,
 				6912DB81298FCA0B006F8C03 /* Assets.xcassets in Resources */,
 				6912DB7F298FCA08006F8C03 /* Main.storyboard in Resources */,
 			);
@@ -314,7 +330,7 @@
 				6912DB7C298FCA08006F8C03 /* LoginViewController.swift in Sources */,
 				6912DB78298FCA08006F8C03 /* AppDelegate.swift in Sources */,
 				6912DB7A298FCA08006F8C03 /* SceneDelegate.swift in Sources */,
-				69CA930E2999F66400F79FF3 /* NetworkHandlers.swift in Sources */,
+				69BEB1CF299DFE9E00A8F248 /* UiUtils.swift in Sources */,
 				6912DB9129928334006F8C03 /* SignInWithEmailViewController.swift in Sources */,
 				69DDE6562994C9F4003900E6 /* AuthenticationHandler.swift in Sources */,
 				693F561F2995297700E61D7E /* exampleSwiftui.swift in Sources */,

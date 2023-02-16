@@ -9,9 +9,11 @@ import UIKit
 import SwiftUI
 import FirebaseAuth
 import GoogleSignIn
-class SignInWithEmailViewController: UIViewController {
+class SignInWithEmailViewController: UIViewController,UITextFieldDelegate {
     var isKeyboardPresent = false
     var sign_in = true
+    var email:String?
+    var password:String?
     @IBOutlet weak var Signin_upLabel: UILabel!
     @IBOutlet weak var SignUpButton: UIButton!
     @IBOutlet weak var SignInButton: UIButton!
@@ -31,25 +33,9 @@ class SignInWithEmailViewController: UIViewController {
         }
         let gradient = CAGradientLayer()
         var bounds = SignInButton.bounds
-        bounds.size.height += UIApplication.shared.statusBarFrame.size.height
-        gradient.frame = bounds
-        gradient.colors = [UIColor.red.cgColor, UIColor.blue.cgColor]
-        gradient.startPoint = CGPoint(x: 0, y: 0)
-        gradient.endPoint = CGPoint(x: 1, y: 0)
-//        let layer0 = CAGradientLayer()
-//        layer0.colors = [
-//          UIColor(red: 0.404, green: 0.027, blue: 0.878, alpha: 1).cgColor,
-//          UIColor(red: 1, green: 0.38, blue: 0.863, alpha: 1).cgColor
-//        ]
-//        layer0.locations = [0, 1]
-//        layer0.startPoint = CGPoint(x: 0.25, y: 0.5)
-//        layer0.endPoint = CGPoint(x: 0.75, y: 0.5)
-//        layer0.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: 0.98, b: 0.95, c: -0.95, d: 1.35, tx: 0.48, ty: -0.65))
-//        layer0.bounds = SignInButton.bounds.insetBy(dx: -0.5*SignInButton.bounds.size.width, dy: -0.5*SignInButton.bounds.size.height)
-//        layer0.position = SignInButton.center
-//        SignInButton.layer.addSublayer(layer0)
-//        SignInButton.layer.cornerRadius = 8
-//        SignInButton.applyGradient(colours: [constants.buttonGradientColor1,constants.buttonGradientColor2], locations: [0.0, 0.5, 1.0])
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
     }
     @objc private func keyboardWillShow(notification: NSNotification){
         if(!isKeyboardPresent){
@@ -71,30 +57,60 @@ class SignInWithEmailViewController: UIViewController {
             AuthenticationHandler.Shared.SigninWithEmail(with: email, password: password, controller: self) { AuthResult, error in
                 if let error = error{
                     print(error.localizedDescription)
-                    let alert = UIAlertController(title: "Failure", message: error.localizedDescription, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .default))
-                    self.present(alert, animated: true)
+                    DispatchQueue.main.async {
+                    UiUtils.showToast(message: error.localizedDescription)
+                    }
                 }
                 if let AuthResult = AuthResult {
                     AuthResult.user.getIDToken { token, error in
                         print(token ?? error)
-                        networkService.shared.Post(withEndppoint: constants.SigniNEndpoints, param: nil) { status, error, response, data in
-                            if(response == 201){
+                        guard let token = token else{
+                            DispatchQueue.main.async {
+                            UiUtils.showToast(message: "Failed getting access token")
+                            }
+                            return
+                        }
+//                        networkService.shared.Post(withEndppoint: constants.SigniNEndpoints, tokenString: token!, param: nil) { status, statuscode in
+                        networkService.shared.SignIn(withToken: token) { status,statuscode in
+                            if(status){
+                            if(statuscode == 201){
+                                DispatchQueue.main.sync {
                                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
                                 self.navigationController?.pushViewController(vc, animated: true)
+                                }
+                            }
+                            else if(statuscode == 200){
+                                DispatchQueue.main.sync {
+                                let vc = self.storyboard?.instantiateViewController(withIdentifier: "Createprofile1ViewController") as! Createprofile1ViewController
+                                self.navigationController?.pushViewController(vc, animated: true)
+                                }
+                            }
+                            else{
+                                print(statuscode)
+                            }
+                            }
+                            else{
+                                print("failre")
                             }
                         }
                     }
                     print(GIDSignIn.sharedInstance.currentUser?.accessToken)
                     print(AuthResult.user.getIDToken())
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Createprofile1ViewController") as! Createprofile1ViewController
-                    self.navigationController?.pushViewController(vc, animated: true)
                 }
             }
         }
         else{
+            DispatchQueue.main.sync {
             guard let email = EmailTextField.text else{return}
             guard let password = PasswordTextfield.text else{return}
+            }
+            guard let email = email else {
+                return
+            }
+            guard let password = password else {
+                return
+            }
+
             AuthenticationHandler.Shared.SignUpWithEmail(with: email, password: password, controller: self) { authresults in
                 print(authresults?.user.email)
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "Createprofile1ViewController") as! Createprofile1ViewController
