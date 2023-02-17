@@ -27,8 +27,19 @@
 		696F1EE5299A40EB004D56E5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696F1EE4299A40EB004D56E5 /* HomeViewController.swift */; };
 		69AA853C299F3CF300FD1869 /* ToolTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AA853B299F3CF300FD1869 /* ToolTipView.swift */; };
 		69AA853E299F3D2D00FD1869 /* BottomViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AA853D299F3D2D00FD1869 /* BottomViewViewController.swift */; };
+		69739B23299F7CDB00BA3FFA /* MoreChallemngesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69739B21299F7CDB00BA3FFA /* MoreChallemngesTableViewCell.swift */; };
+		69739B24299F7CDB00BA3FFA /* MoreChallemngesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69739B22299F7CDB00BA3FFA /* MoreChallemngesTableViewCell.xib */; };
+		69739B26299F836100BA3FFA /* Createchallengfe1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69739B25299F836100BA3FFA /* Createchallengfe1ViewController.swift */; };
 		69BEB1CD299DFE6100A8F248 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69BEB1CC299DFE6100A8F248 /* GoogleService-Info.plist */; };
 		69BEB1CF299DFE9E00A8F248 /* UiUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BEB1CE299DFE9E00A8F248 /* UiUtils.swift */; };
+		69BEB1D3299E221C00A8F248 /* ChallengesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69BEB1D2299E221C00A8F248 /* ChallengesStoryboard.storyboard */; };
+		69BEB1D5299E494000A8F248 /* ChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BEB1D4299E494000A8F248 /* ChallengesViewController.swift */; };
+		69BEB1D8299E743900A8F248 /* MyChallengesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BEB1D6299E743900A8F248 /* MyChallengesCollectionViewCell.swift */; };
+		69BEB1D9299E743A00A8F248 /* MyChallengesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69BEB1D7299E743900A8F248 /* MyChallengesCollectionViewCell.xib */; };
+		69BEB1DB299EA01800A8F248 /* JoinOrCreateChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BEB1DA299EA01700A8F248 /* JoinOrCreateChallengeViewController.swift */; };
+		69BEB1DF299F50C800A8F248 /* FeaturedChallengeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BEB1DD299F50C700A8F248 /* FeaturedChallengeCollectionViewCell.swift */; };
+		69BEB1E0299F50C800A8F248 /* FeaturedChallengeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69BEB1DE299F50C700A8F248 /* FeaturedChallengeCollectionViewCell.xib */; };
+		69BEB1E2299F6E6200A8F248 /* GradientColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BEB1E1299F6E6000A8F248 /* GradientColorButton.swift */; };
 		69CA9331299A253600F79FF3 /* ContactPermissionViewControllerr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CA9330299A253500F79FF3 /* ContactPermissionViewControllerr.swift */; };
 		69DDE6562994C9F4003900E6 /* AuthenticationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DDE6552994C9F4003900E6 /* AuthenticationHandler.swift */; };
 /* End PBXBuildFile section */
@@ -66,8 +77,19 @@
 		696F1EE4299A40EB004D56E5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		69AA853B299F3CF300FD1869 /* ToolTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolTipView.swift; sourceTree = "<group>"; };
 		69AA853D299F3D2D00FD1869 /* BottomViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomViewViewController.swift; sourceTree = "<group>"; };
+		69739B21299F7CDB00BA3FFA /* MoreChallemngesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreChallemngesTableViewCell.swift; sourceTree = "<group>"; };
+		69739B22299F7CDB00BA3FFA /* MoreChallemngesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreChallemngesTableViewCell.xib; sourceTree = "<group>"; };
+		69739B25299F836100BA3FFA /* Createchallengfe1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Createchallengfe1ViewController.swift; sourceTree = "<group>"; };
 		69BEB1CC299DFE6100A8F248 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		69BEB1CE299DFE9E00A8F248 /* UiUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiUtils.swift; sourceTree = "<group>"; };
+		69BEB1D2299E221C00A8F248 /* ChallengesStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChallengesStoryboard.storyboard; sourceTree = "<group>"; };
+		69BEB1D4299E494000A8F248 /* ChallengesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesViewController.swift; sourceTree = "<group>"; };
+		69BEB1D6299E743900A8F248 /* MyChallengesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChallengesCollectionViewCell.swift; sourceTree = "<group>"; };
+		69BEB1D7299E743900A8F248 /* MyChallengesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyChallengesCollectionViewCell.xib; sourceTree = "<group>"; };
+		69BEB1DA299EA01700A8F248 /* JoinOrCreateChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinOrCreateChallengeViewController.swift; sourceTree = "<group>"; };
+		69BEB1DD299F50C700A8F248 /* FeaturedChallengeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedChallengeCollectionViewCell.swift; sourceTree = "<group>"; };
+		69BEB1DE299F50C700A8F248 /* FeaturedChallengeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeaturedChallengeCollectionViewCell.xib; sourceTree = "<group>"; };
+		69BEB1E1299F6E6000A8F248 /* GradientColorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientColorButton.swift; sourceTree = "<group>"; };
 		69CA9330299A253500F79FF3 /* ContactPermissionViewControllerr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactPermissionViewControllerr.swift; sourceTree = "<group>"; };
 		69DDE6552994C9F4003900E6 /* AuthenticationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationHandler.swift; sourceTree = "<group>"; };
 		69DED9CB299BC30B001B3083 /* FitOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FitOS.entitlements; sourceTree = "<group>"; };
@@ -108,6 +130,7 @@
 		6912DB76298FCA08006F8C03 /* FitOS */ = {
 			isa = PBXGroup;
 			children = (
+				69BEB1DC299EA02300A8F248 /* Challenges_flow */,
 				69BEB1D1299DFFBE00A8F248 /* UI+extensions */,
 				69BEB1D0299DFF8D00A8F248 /* OnboardingFlow */,
 				69DED9CB299BC30B001B3083 /* FitOS.entitlements */,
@@ -133,6 +156,7 @@
 		6912DB8B29921F78006F8C03 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				69BEB1D2299E221C00A8F248 /* ChallengesStoryboard.storyboard */,
 				6912DB7D298FCA08006F8C03 /* Main.storyboard */,
 				6912DB82298FCA0B006F8C03 /* LaunchScreen.storyboard */,
 			);
@@ -204,11 +228,28 @@
 		69BEB1D1299DFFBE00A8F248 /* UI+extensions */ = {
 			isa = PBXGroup;
 			children = (
+				69BEB1E1299F6E6000A8F248 /* GradientColorButton.swift */,
 				69BEB1CE299DFE9E00A8F248 /* UiUtils.swift */,
 				693F561C2995126300E61D7E /* UIview+extensions.swift */,
 				69AA853B299F3CF300FD1869 /* ToolTipView.swift */,
 			);
 			path = "UI+extensions";
+			sourceTree = "<group>";
+		};
+		69BEB1DC299EA02300A8F248 /* Challenges_flow */ = {
+			isa = PBXGroup;
+			children = (
+				69BEB1D6299E743900A8F248 /* MyChallengesCollectionViewCell.swift */,
+				69BEB1DA299EA01700A8F248 /* JoinOrCreateChallengeViewController.swift */,
+				69BEB1D7299E743900A8F248 /* MyChallengesCollectionViewCell.xib */,
+				69BEB1D4299E494000A8F248 /* ChallengesViewController.swift */,
+				69BEB1DD299F50C700A8F248 /* FeaturedChallengeCollectionViewCell.swift */,
+				69BEB1DE299F50C700A8F248 /* FeaturedChallengeCollectionViewCell.xib */,
+				69739B21299F7CDB00BA3FFA /* MoreChallemngesTableViewCell.swift */,
+				69739B22299F7CDB00BA3FFA /* MoreChallemngesTableViewCell.xib */,
+				69739B25299F836100BA3FFA /* Createchallengfe1ViewController.swift */,
+			);
+			path = Challenges_flow;
 			sourceTree = "<group>";
 		};
 		7B3130BFE9601C7C2803544A /* Frameworks */ = {
@@ -288,8 +329,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69BEB1E0299F50C800A8F248 /* FeaturedChallengeCollectionViewCell.xib in Resources */,
+				69BEB1D9299E743A00A8F248 /* MyChallengesCollectionViewCell.xib in Resources */,
 				6912DB84298FCA0B006F8C03 /* LaunchScreen.storyboard in Resources */,
 				69BEB1CD299DFE6100A8F248 /* GoogleService-Info.plist in Resources */,
+				69739B24299F7CDB00BA3FFA /* MoreChallemngesTableViewCell.xib in Resources */,
+				69BEB1D3299E221C00A8F248 /* ChallengesStoryboard.storyboard in Resources */,
 				6912DB81298FCA0B006F8C03 /* Assets.xcassets in Resources */,
 				6912DB7F298FCA08006F8C03 /* Main.storyboard in Resources */,
 			);
@@ -345,23 +390,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				69443FA1299C9E7D00702F0E /* LocalWebViewVC.swift in Sources */,
+				69BEB1E2299F6E6200A8F248 /* GradientColorButton.swift in Sources */,
+				69BEB1D8299E743900A8F248 /* MyChallengesCollectionViewCell.swift in Sources */,
 				69CA9331299A253600F79FF3 /* ContactPermissionViewControllerr.swift in Sources */,
 				693F561D2995126300E61D7E /* UIview+extensions.swift in Sources */,
+				69739B26299F836100BA3FFA /* Createchallengfe1ViewController.swift in Sources */,
+				69739B23299F7CDB00BA3FFA /* MoreChallemngesTableViewCell.swift in Sources */,
 				6912DB7C298FCA08006F8C03 /* LoginViewController.swift in Sources */,
 				6912DB78298FCA08006F8C03 /* AppDelegate.swift in Sources */,
 				6912DB7A298FCA08006F8C03 /* SceneDelegate.swift in Sources */,
+				69BEB1DF299F50C800A8F248 /* FeaturedChallengeCollectionViewCell.swift in Sources */,
 				69BEB1CF299DFE9E00A8F248 /* UiUtils.swift in Sources */,
 				69AA853E299F3D2D00FD1869 /* BottomViewViewController.swift in Sources */,
 				694709ED299E0BA100D07BBB /* GradientColorButton.swift in Sources */,
 				6912DB9129928334006F8C03 /* SignInWithEmailViewController.swift in Sources */,
 				69DDE6562994C9F4003900E6 /* AuthenticationHandler.swift in Sources */,
 				693F561F2995297700E61D7E /* exampleSwiftui.swift in Sources */,
+				69BEB1DB299EA01800A8F248 /* JoinOrCreateChallengeViewController.swift in Sources */,
 				693F56432996579600E61D7E /* Createprofile2ViewController.swift in Sources */,
 				69AA853C299F3CF300FD1869 /* ToolTipView.swift in Sources */,
 				694709EB299E0B7D00D07BBB /* PaddedTextField.swift in Sources */,
 				693F56412996578100E61D7E /* Createprofile1ViewController.swift in Sources */,
 				696F1EE5299A40EB004D56E5 /* HomeViewController.swift in Sources */,
 				6912DB8F2992430D006F8C03 /* Constants.swift in Sources */,
+				69BEB1D5299E494000A8F248 /* ChallengesViewController.swift in Sources */,
 				69297796299CDF4800E0ED1A /* NetworkHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

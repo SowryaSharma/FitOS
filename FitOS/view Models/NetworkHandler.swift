@@ -19,7 +19,10 @@ class networkService{
         let tokenString = withToken
         var request = URLRequest(url: URL(string: comPleteURL)!)
         request.httpMethod = "POST"
-        request.addValue("Token \(tokenString)", forHTTPHeaderField: "Authorization")
+        request.addValue("bearer \(tokenString)", forHTTPHeaderField: "Authorization")
+        
+        //Authorization : token string
+        //Authorization : Bearer token
         let task = URLSession.shared.dataTask(with: request) { Data, response, error in
             if let error = error {
                 print(error.localizedDescription)
