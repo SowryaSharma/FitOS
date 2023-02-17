@@ -7,24 +7,40 @@
 
 import UIKit
 
-class Createprofile1ViewController: UIViewController {
+class Createprofile1ViewController: UIViewController, BottomViewGenderDelegate, BottomViewAgeDelegate {
+    func didSelectGender(_ gender: String) {
+        if(gender == ""){
+            genderButton.setTitle("Select", for: .normal)
+        }else{
+            genderButton.setTitle(gender, for: .normal)
+        }
+    }
+    
+    func didSelectAge(_ age: String) {
+        if(age == ""){
+            ageButton.setTitle("Select", for: .normal)
+        }else{
+            ageButton.setTitle(age, for: .normal)
+        }
+    }
+    
     var AgeData: [String] = [String]()
     var genderData:[String] = [String]()
     
-    @IBOutlet weak var ageDropDownButton: UIButton!
-    @IBOutlet weak var ageTextField: UITextField!
+    @IBOutlet weak var genderButton: UIButton!
+    @IBOutlet weak var ageButton: UIButton!
     @IBOutlet weak var AgeView: UIView!
     var email:String = ""
-    @IBOutlet weak var GenderPickerView: UIPickerView!
-    @IBOutlet weak var AgePickerView: UIPickerView!
+    
+    @IBOutlet weak var ageDropDown: UIButton!
+    
+    @IBOutlet weak var genderDropDown: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        ageDropDownButton.setTitle("", for: .normal)
-        AgeView.layer.borderWidth = 2
-        AgeView.layer.borderColor = UIColor.black.cgColor
-        ageTextField.layer.borderWidth = 0
-        AgeData = ["Below 18", "18-24","25-34","35-44","45-54","55-64","above 64"]
-        genderData = ["Male","Female","Others","Prefer not to say"]
+        self.navigationController?.navigationBar.isHidden = true
+       
+//        AgeData = ["Below 18", "18-24","25-34","35-44","45-54","55-64","above 64"]
+//        genderData = ["Male","Female","Others","Prefer not to say"]
         // Do any additional setup after loading the view.
     }
     
@@ -32,18 +48,34 @@ class Createprofile1ViewController: UIViewController {
         self.email = email
     }
 
+    @IBAction func ageButtonBtnTap(_ sender: UIButton) {
+        let bottomView = self.storyboard?.instantiateViewController(withIdentifier: "BottomViewViewController") as! BottomViewViewController
+        bottomView.modalPresentationStyle = .overCurrentContext
+        bottomView.titleText = "Select Your Age Range"
+        bottomView.bottomViewAgeDelegate = self
+        self.present(bottomView, animated: false, completion: nil)
+    }
+    @IBAction func genderButtonTap(_ sender: UIButton) {
+        let bottomView = self.storyboard?.instantiateViewController(withIdentifier: "BottomViewViewController") as! BottomViewViewController
+        bottomView.modalPresentationStyle = .overCurrentContext
+        bottomView.titleText = "Select Your Gender"
+        bottomView.bottomViewGenderDelegate = self
+        self.present(bottomView, animated: false, completion: nil)
+    }
+    @IBAction func backBtnTap(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction func queriesBtnTap(_ sender: UIButton) {
+//        Tooltip.addTooltip(to: sender, with: "Understanding your age range and gender helps us recommend challenges and groups for you. FITOS might share this information with gyms you associate with in the app in order to better serve you.")
+        let toolTipView = ToolTipView(text: "Understanding your age range and gender helps us recommend challenges and groups for you. FITOS might share this information with gyms you associate with in the app in order to better serve you.", width: 204, height: 120)
+        toolTipView.show(from: sender)
+    }
     @IBAction func ActionButtonContinue(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "Createprofile2ViewController") as! Createprofile2ViewController
         navigationController?.pushViewController(vc, animated: true)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func skipBtnTap(_ sender: UIButton) {
     }
-    */
-
+    
 }
