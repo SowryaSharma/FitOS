@@ -35,6 +35,9 @@ class AuthenticationHandler{
             completionHanlder(AUTHDATA)
         }
     }
-    func SignInWithApple(){
+    func SignIn(credentials:AuthCredential) async{
+        Auth.auth().signIn(with: credentials){results,error in
+            print(results,error)
+        }
     }
 }

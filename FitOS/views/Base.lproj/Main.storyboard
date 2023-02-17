@@ -71,7 +71,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="log in using google"/>
                                         <connections>
-                                            <action selector="ActionButtonLoginGoogle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EjE-3U-cTR"/>
+                                            <action selector="ActionButtonLoginGoogle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eBo-vP-UOR"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4f-X5-Ogy">
@@ -549,13 +549,13 @@
                                 <rect key="frame" x="10" y="167.33333333333334" width="394" height="118.66666666666666"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create your Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVp-u4-0zS">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="70.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="53"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdY-Ym-Hqk">
-                                        <rect key="frame" x="0.0" y="75.333333333333314" width="394" height="43.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="58" width="394" height="60.666666666666657"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -719,13 +719,13 @@
                                 <rect key="frame" x="10" y="167.33333333333334" width="394" height="118.66666666666666"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create your Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1LN-DL-qTR">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="70.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="53"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This will help you find groups and take part in Challenges." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogf-Oc-NyM">
-                                        <rect key="frame" x="0.0" y="75.333333333333314" width="394" height="43.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="58" width="394" height="60.666666666666657"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
