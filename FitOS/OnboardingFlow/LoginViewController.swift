@@ -66,6 +66,7 @@ class LoginViewController: UIViewController, UITextViewDelegate, ASAuthorization
             print("Not signed in")
         }
         
+
         if(isLoggedIn){
             PushToHome()
         }
@@ -151,7 +152,7 @@ class LoginViewController: UIViewController, UITextViewDelegate, ASAuthorization
                         }
                     }
                     else{
-                        print("failre")
+                        print("failure")
                     }
                 }
             }
