@@ -14,6 +14,8 @@ class SignInWithEmailViewController: UIViewController,UITextFieldDelegate {
     var sign_in = true
     var email:String?
     var password:String?
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var Signin_upLabel: UILabel!
     @IBOutlet weak var SignUpButton: UIButton!
     @IBOutlet weak var PasswordTextfield: UITextField!
@@ -34,14 +36,21 @@ class SignInWithEmailViewController: UIViewController,UITextFieldDelegate {
         AuthenticationHandler.Shared.SignUpWithEmail(with: "sowryasharma@gmail.com", password: "password", controller: self) { results in
             print(results)
         }
+        PasswordTextfield.delegate = self
+        EmailTextField.delegate = self
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+           view.addGestureRecognizer(tapGesture)
         let gradient = CAGradientLayer()
         var bounds = SignInButton.bounds
     }
-    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
     @IBAction func backBtnTap(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         return true
     }
     @objc private func keyboardWillShow(notification: NSNotification){
