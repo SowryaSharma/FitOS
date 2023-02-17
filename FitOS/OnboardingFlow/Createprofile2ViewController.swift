@@ -7,11 +7,12 @@
 
 import UIKit
 
-class Createprofile2ViewController: UIViewController {
+class Createprofile2ViewController: UIViewController, UITextFieldDelegate {
     var isKeyboardPresent = false
-    @IBOutlet weak var usernameTextfield: UITextField!
-    @IBOutlet weak var lastnametextfield: UITextField!
-    @IBOutlet weak var firstnametextfield: UITextField!
+    @IBOutlet weak var usernameTextfield: PaddedTextField!
+    
+    @IBOutlet weak var firstnametextfield: PaddedTextField!
+    @IBOutlet weak var lastnametextfield: PaddedTextField!
     @IBOutlet weak var continueBtn: GradientButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,17 @@ class Createprofile2ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardDidShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardDidHideNotification, object: nil)
         // Do any additional setup after loading the view.
+        usernameTextfield.delegate = self
+        usernameTextfield.tag = 0
+        
+        firstnametextfield.delegate = self
+        firstnametextfield.tag = 1
+        
+        lastnametextfield.delegate = self
+        lastnametextfield.tag = 2
+        
+        continueBtn.isEnabled = false
+        continueBtn.backgroundColor = .gray
     }
     
     @IBAction func backBtnTap(_ sender: UIButton) {
@@ -44,14 +56,34 @@ class Createprofile2ViewController: UIViewController {
         self.view.frame.origin.y = 0
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // Determine the new text after the user types a new character
+        guard let oldText = textField.text, let r = Range(range, in: oldText) else {
+            return true
+        }
+        
+        let newText = oldText.replacingCharacters(in: r, with: string)
+        print("newText: \(newText)")
+        
+        // Set the text field's text to the new text
+        textField.text = newText
+        print("textField.text: \(textField.text)")
+        
+        // Enable or disable the continue button based on whether all three text fields have text
+        if let text1 = firstnametextfield.text, !text1.isEmpty,
+           let text2 = lastnametextfield.text, !text2.isEmpty,
+           let text3 = usernameTextfield.text, !text3.isEmpty {
+            continueBtn.isEnabled = true
+//            continueBtn.backgroundColor = continueBtn.backgroundColor(for: .normal)
+        } else {
+            continueBtn.isEnabled = false
+            continueBtn.backgroundColor = .gray
+        }
+        
+        return false
     }
-    */
+
+
+   
 
 }

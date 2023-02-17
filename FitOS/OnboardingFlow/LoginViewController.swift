@@ -52,6 +52,9 @@ class LoginViewController: UIViewController, UITextViewDelegate, ASAuthorization
             }
         }
         
+//        if(isLoggedIn){
+//            PushToHome()
+//        }
     }
     override func viewDidAppear(_ animated: Bool) {
         UiUtils.showToast(message: "LLLLLLLLLLLLL,lllllllllllllll")
