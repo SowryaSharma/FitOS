@@ -33,7 +33,8 @@ public class canWeContactViewController: UIViewController {
     }
     @IBAction func ActionButtonContinue(_ sender: Any) {
         if(checked){
-            let vc = storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+            let ChallengesStoryboard = UIStoryboard(name: "ChallengesStoryboard", bundle: nil)
+            let vc = ChallengesStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
             navigationController?.pushViewController(vc, animated: true)
         }
     }

@@ -101,7 +101,7 @@ extension BottomViewViewController: UITableViewDelegate, UITableViewDataSource{
         }
         
         // Update the selected row index variable
-        selectedRowIndex = indexPath
+         selectedRowIndex = indexPath
     }
     
 }

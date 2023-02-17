@@ -15,8 +15,12 @@ class Createchallengfe1ViewController: UIViewController {
         super.viewDidLoad()
         ButtonCreate.layer.cornerRadius = 10
         LeaderBoardView.layer.cornerRadius = 10
+        self.navigationController?.isNavigationBarHidden = true
     }
     
 
-
+    @IBAction func backBtnTap(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 }

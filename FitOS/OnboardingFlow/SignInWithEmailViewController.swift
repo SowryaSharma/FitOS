@@ -82,8 +82,11 @@ class SignInWithEmailViewController: UIViewController,UITextFieldDelegate {
                             if(status){
                             if(statuscode == 200){
                                 DispatchQueue.main.async {
-                                let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                                    let ChallengesStoryboard = UIStoryboard(name: "ChallengesStoryboard", bundle: nil)
+                                    let vc = ChallengesStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
                                 self.navigationController?.pushViewController(vc, animated: true)
+//                                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Createprofile1ViewController") as! Createprofile1ViewController
+//                                    self.navigationController?.pushViewController(vc, animated: true)
                                 }
                             }
                             else if(statuscode == 201){
@@ -106,9 +109,9 @@ class SignInWithEmailViewController: UIViewController,UITextFieldDelegate {
             }
         }
         else{
-            DispatchQueue.main.sync {
-            guard let email = EmailTextField.text else{return}
-            guard let password = PasswordTextfield.text else{return}
+            DispatchQueue.main.async {
+                guard let email = self.EmailTextField.text else{return}
+                guard let password = self.PasswordTextfield.text else{return}
             }
             guard let email = email else {
                 return
