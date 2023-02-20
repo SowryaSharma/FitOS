@@ -41,6 +41,7 @@ class JoinOrCreateChallengeViewController: UIViewController,UICollectionViewDele
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         ChallengesTableView.register(MoreChallemngesTableViewCell.nib(), forCellReuseIdentifier: MoreChallemngesTableViewCell.identifier)
         ChallengesTableView.delegate=self
         ChallengesTableView.dataSource=self

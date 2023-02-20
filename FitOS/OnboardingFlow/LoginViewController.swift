@@ -50,11 +50,9 @@ class LoginViewController: UIViewController, UITextViewDelegate, ASAuthorization
     func handleLogin(){
         GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
             if error != nil || user == nil {
-                // Show the app's signed-out state.
-                print("Not signed in")
+                print("Not signed in with google")
             } else {
-                // Show the app's signed-in state.
-                print("signed in")
+                print("signed in with google")
                 self.isLoggedIn = true
             }
         }
