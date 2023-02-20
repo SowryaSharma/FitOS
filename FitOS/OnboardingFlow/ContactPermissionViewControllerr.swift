@@ -35,6 +35,7 @@ public class canWeContactViewController: UIViewController {
         if(checked){
             let ChallengesStoryboard = UIStoryboard(name: "ChallengesStoryboard", bundle: nil)
             let vc = ChallengesStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

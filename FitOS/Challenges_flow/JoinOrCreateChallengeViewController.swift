@@ -41,7 +41,7 @@ class JoinOrCreateChallengeViewController: UIViewController,UICollectionViewDele
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.isNavigationBarHidden = true
         ChallengesTableView.register(MoreChallemngesTableViewCell.nib(), forCellReuseIdentifier: MoreChallemngesTableViewCell.identifier)
         ChallengesTableView.delegate=self
         ChallengesTableView.dataSource=self
@@ -57,5 +57,9 @@ class JoinOrCreateChallengeViewController: UIViewController,UICollectionViewDele
 
         // Do any additional setup after loading the view.
     }
-
+    
+    @IBAction func backBtnTap(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: false)
+    }
+    
 }
