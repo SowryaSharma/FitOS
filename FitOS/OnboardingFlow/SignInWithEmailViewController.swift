@@ -83,6 +83,7 @@ class SignInWithEmailViewController: UIViewController,UITextFieldDelegate {
                             if(status){
                             if(statuscode == 200){
                                 DispatchQueue.main.async {
+
                                     self.PushToHome()
                                 }
                             }

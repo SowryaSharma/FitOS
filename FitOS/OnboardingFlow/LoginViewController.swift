@@ -132,6 +132,7 @@ class LoginViewController: UIViewController, UITextViewDelegate, ASAuthorization
                 let accessToken = GIDSignIn.sharedInstance.currentUser!.accessToken.tokenString
                 guard let tokenString = Results else{return}
                 print(tokenString)
+
                 let credential = GoogleAuthProvider.credential(withIDToken: tokenString, accessToken: accessToken)
                 Auth.auth().signIn(with: credential) { (authResult, error) in
                     if error != nil {
@@ -342,6 +343,7 @@ extension LoginViewController:ASAuthorizationControllerDelegate{
                             DispatchQueue.main.async {
                                 UiUtils.showToast(message: "Failed getting access token")
                             }
+
                             return
                         }
                         networkService.shared.SignIn(withToken: token) { status, statuscode in
