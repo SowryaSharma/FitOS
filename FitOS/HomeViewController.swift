@@ -10,6 +10,7 @@ import GoogleSignIn
 import FirebaseAuth
 class HomeViewController: UITabBarController {
 
+    @IBOutlet weak var bottonTabBarView: UITabBar!
     @IBOutlet weak var label: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +18,10 @@ class HomeViewController: UITabBarController {
     }
     @IBAction func actionButtonLogout(_ sender: Any) {
         GIDSignIn.sharedInstance.signOut()
+        bottonTabBarView.layer.cornerRadius = 12.0
+        bottonTabBarView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        bottonTabBarView.layer.masksToBounds = true
+        bottonTabBarView.layer.backgroundColor = UIColor(red: 0.957, green: 0.957, blue: 0.965, alpha: 1).cgColor
         navigationController?.navigationItem.titleView?.isHidden = true
         guard let navigationController = navigationController else {return}
         var count = navigationController.viewControllers.count-1

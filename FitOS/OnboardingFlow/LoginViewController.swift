@@ -65,9 +65,9 @@ class LoginViewController: UIViewController, UITextViewDelegate, ASAuthorization
         }
         
 
-        if(isLoggedIn){
-            PushToHome()
-        }
+//        if(isLoggedIn){
+//            PushToHome()
+//        }
     }
     func PushToHome(){
         let ChallengesStoryboard = UIStoryboard(name: "ChallengesStoryboard", bundle: nil)
@@ -133,7 +133,8 @@ class LoginViewController: UIViewController, UITextViewDelegate, ASAuthorization
                 networkService.shared.SignIn(withToken: tokenString) { status, statuscode in
                     if(status){
                         if(statuscode == 201){
-                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                            let ChallengesStoryboard = UIStoryboard(name: "ChallengesStoryboard", bundle: nil)
+                            let vc = ChallengesStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
                             self.navigationController?.pushViewController(vc, animated: true)
                         }
                         else if(statuscode == 200){
@@ -327,7 +328,8 @@ class LoginViewController: UIViewController, UITextViewDelegate, ASAuthorization
                                 if(status){
                                     if(statuscode == 201){
                                         DispatchQueue.main.async {
-                                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                                            let ChallengesStoryboard = UIStoryboard(name: "ChallengesStoryboard", bundle: nil)
+                                            let vc = ChallengesStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
                                         self.navigationController?.pushViewController(vc, animated: true)
                                         }
                                     }

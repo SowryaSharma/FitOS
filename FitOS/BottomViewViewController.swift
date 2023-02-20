@@ -98,10 +98,11 @@ extension BottomViewViewController: UITableViewDelegate, UITableViewDataSource{
         if let previousSelectedIndex = selectedRowIndex {
             let previousSelectedCell = tableView.cellForRow(at: previousSelectedIndex) as! BottomViewTVCell
             previousSelectedCell.myLabel.backgroundColor = UIColor.white
+            previousSelectedCell.myLabel.textColor = UIColor.gray
         }
         
         // Update the selected row index variable
-        selectedRowIndex = indexPath
+         selectedRowIndex = indexPath
     }
     
 }
