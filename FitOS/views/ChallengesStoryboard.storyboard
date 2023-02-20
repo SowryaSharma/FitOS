@@ -1728,14 +1728,20 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="47r-P9-4Py">
+            <size key="intrinsicContentSize" width="62.5" height="31"/>
+        </designable>
         <designable name="BqD-18-ZwZ">
-            <size key="intrinsicContentSize" width="140" height="24"/>
+            <size key="intrinsicContentSize" width="138" height="24"/>
+        </designable>
+        <designable name="DgO-ia-rC8">
+            <size key="intrinsicContentSize" width="158" height="31"/>
         </designable>
         <designable name="KMA-Ab-Fk1">
             <size key="intrinsicContentSize" width="67" height="31"/>
         </designable>
         <designable name="Nz8-Bf-rPh">
-            <size key="intrinsicContentSize" width="95.5" height="30"/>
+            <size key="intrinsicContentSize" width="91.5" height="29.5"/>
         </designable>
         <designable name="QjF-zT-RoM">
             <size key="intrinsicContentSize" width="82.5" height="31"/>
