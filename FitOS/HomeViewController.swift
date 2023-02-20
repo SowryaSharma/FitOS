@@ -9,7 +9,7 @@ import UIKit
 import GoogleSignIn
 import FirebaseAuth
 class HomeViewController: UITabBarController {
-
+var signedin = true
     @IBOutlet weak var label: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,12 +34,23 @@ class HomeViewController: UITabBarController {
         GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
           if error != nil || user == nil {
               print("Not signed in")
+              self.signedin = false
           } else {
             // Show the app's signed-in state.
               print("signed in")
+              self.signedin = true
               print(user?.profile?.email)
-              self.label.text = "Signed in as \(user?.profile?.name ?? "")"
           }
+        }
+        if(Auth.auth().currentUser != nil){
+            print("signed in with email or appler")
+            signedin = true
+        }
+        else{
+            signedin = false
+        }
+        if(!signedin){
+            navigationController?.popViewController(animated: false)
         }
     }
 

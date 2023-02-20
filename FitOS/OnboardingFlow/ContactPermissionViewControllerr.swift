@@ -19,7 +19,7 @@ public class canWeContactViewController: UIViewController {
         self.navigationController?.popViewController(animated: false)
     }
     @IBAction func actionButtonCheck(_ sender: Any) {
-        print("sctioButtonCheck")
+        print("actioButtonCheck")
         if(checked){
             checked = false
             CheckButton.setImage(UIImage(named: "unselected"), for: .normal)
@@ -33,8 +33,9 @@ public class canWeContactViewController: UIViewController {
     }
     @IBAction func ActionButtonContinue(_ sender: Any) {
         if(checked){
-            let vc = storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-            navigationController?.pushViewController(vc, animated: true)
+            let ChallengesStoryboard = UIStoryboard(name: "ChallengesStoryboard", bundle: nil)
+            let vc = ChallengesStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }
