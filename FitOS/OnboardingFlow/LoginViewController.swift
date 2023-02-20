@@ -39,7 +39,7 @@ class LoginViewController: UIViewController, UITextViewDelegate, ASAuthorization
     var tokenString:String?
     override func viewDidLoad() {
         super.viewDidLoad()
-        try! Auth.auth().signOut()
+//        try! Auth.auth().signOut()
         setUI()
         setLayouts()
     }
@@ -66,7 +66,7 @@ class LoginViewController: UIViewController, UITextViewDelegate, ASAuthorization
             print("Not signed in")
         }
         
-
+        
         if(isLoggedIn){
             PushToHome()
         }
@@ -132,186 +132,8 @@ class LoginViewController: UIViewController, UITextViewDelegate, ASAuthorization
                 let accessToken = GIDSignIn.sharedInstance.currentUser!.accessToken.tokenString
                 guard let tokenString = Results else{return}
                 print(tokenString)
-                networkService.shared.SignIn(withToken: tokenString) { status, statuscode in
-                    if(status){
-                        if(statuscode == 201){
-                            let ChallengesStoryboard = UIStoryboard(name: "ChallengesStoryboard", bundle: nil)
-                            let vc = ChallengesStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-                            self.navigationController?.pushViewController(vc, animated: true)
-                        }
-                        else if(statuscode == 200){
-                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Createprofile1ViewController") as! Createprofile1ViewController
-                            vc.Init(email: Results ?? "")
-                            self.navigationController?.pushViewController(vc, animated: true)
-                        }
-                        else{
-                            print(statuscode)
-                            DispatchQueue.main.async {
-                            UiUtils.showToast(message: "Failed with error: \(statuscode)")
-                            }
-                            GIDSignIn.sharedInstance.signOut()
-                        }
-                    }
-                    else{
-                        print("failure")
-                    }
-                }
-            }
-            else{
-                DispatchQueue.main.async {
-                UiUtils.showToast(message: "Cancelled signing-in")
-                }
-            }
-        }
-    }
-//    func signIn() {
-//      // 1
-//      if GIDSignIn.sharedInstance.hasPreviousSignIn() {
-//        GIDSignIn.sharedInstance.restorePreviousSignIn { [unowned self] user, error in
-//            authenticateUser(for: user, with: error)
-//        }
-//      } else {
-//        // 2
-//        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
-//
-//        // 3
-//        let configuration = GIDConfiguration(clientID: clientID)
-//
-//        // 4
-//        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
-//        guard let rootViewController = windowScene.windows.first?.rootViewController else { return }
-//
-//        // 5
-//          GIDSignIn.sharedInstance.signIn(withPresenting: self) { [unowned self] user, error in
-//              authenticateUser(for: user?.user, with: error)
-//        }
-//      }
-//    }
 
-//    private func authenticateUser(for user: GIDGoogleUser?, with error: Error?) {
-//      // 1
-//      if let error = error {
-//        print(error.localizedDescription)
-//        return
-//      }
-//
-//      // 2
-//        guard let authentication = user?.authentication, let idToken = authentication.idtoken else { return }
-//
-//      let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: authentication.accessToken)
-//
-//      // 3
-//      Auth.auth().signIn(with: credential) { [unowned self] (_, error) in
-//        if let error = error {
-//          print(error.localizedDescription)
-//        } else {
-//          self.state = .signedIn
-//        }
-//      }
-//    }
-        @IBAction func ActionButtonLoginApple(_ sender: Any) {
-            startSignInWithAppleFlow()
-        }
-        @IBAction func ActionButtonLoginEmail(_ sender: Any) {
-            print("ActionButtonLoginEmail")
-            let signinVC = storyboard?.instantiateViewController(withIdentifier: "SignInWithEmail") as! SignInWithEmailViewController
-            navigationController?.pushViewController(signinVC, animated: true)
-        }
-        
-        @IBAction func termsOfServiceBtnTap(_ sender: UIButton) {
-            let VC = storyboard?.instantiateViewController(withIdentifier: "LocalWebViewVC") as! LocalWebViewVC
-            VC.modalPresentationStyle = .fullScreen
-            VC.whatToShow = "termsAndConditions"
-            VC.headerLabelText = "FITOS Terms & Conditions"
-            //        self.present(VC, animated: true)
-            self.navigationController?.pushViewController(VC, animated: true)
-        }
-        
-        @IBAction func privacyPolicyBtnTap(_ sender: UIButton) {
-            let VC = storyboard?.instantiateViewController(withIdentifier: "LocalWebViewVC") as! LocalWebViewVC
-            VC.modalPresentationStyle = .fullScreen
-            VC.whatToShow = "privacyPolicy"
-            VC.headerLabelText = "FITOS Privacy Policy"
-            self.navigationController?.pushViewController(VC, animated: true)
-        }
-    }
-    extension LoginViewController:ASAuthorizationControllerDelegate{
-        private func randomNonceString(length: Int = 32) -> String {
-            precondition(length > 0)
-            let charset: [Character] =
-            Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
-            var result = ""
-            var remainingLength = length
-            
-            while remainingLength > 0 {
-                let randoms: [UInt8] = (0 ..< 16).map { _ in
-                    var random: UInt8 = 0
-                    let errorCode = SecRandomCopyBytes(kSecRandomDefault, 1, &random)
-                    if errorCode != errSecSuccess {
-                        fatalError(
-                            "Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)"
-                        )
-                    }
-                    return random
-                }
-                
-                randoms.forEach { random in
-                    if remainingLength == 0 {
-                        return
-                    }
-                    
-                    if random < charset.count {
-                        result.append(charset[Int(random)])
-                        remainingLength -= 1
-                    }
-                }
-            }
-            
-            return result
-        }
-        
-        private func sha256(_ input: String) -> String {
-            let inputData = Data(input.utf8)
-            let hashedData = SHA256.hash(data: inputData)
-            let hashString = hashedData.compactMap {
-                String(format: "%02x", $0)
-            }.joined()
-            
-            return hashString
-        }
-        
-        func startSignInWithAppleFlow() {
-            let nonce = randomNonceString()
-            currentNonce = nonce
-            let appleIDProvider = ASAuthorizationAppleIDProvider()
-            let request = appleIDProvider.createRequest()
-            request.requestedScopes = [.fullName, .email]
-            request.nonce = sha256(nonce)
-            
-            let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-            authorizationController.delegate = self
-            authorizationController.presentationContextProvider = self
-            authorizationController.performRequests()
-        }
-        
-        func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-            if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
-                guard let nonce = currentNonce else {
-                    fatalError("Invalid state: A login callback was received, but no login request was sent.")
-                }
-                guard let appleIDToken = appleIDCredential.identityToken else {
-                    print("Unable to fetch identity token")
-                    return
-                }
-                guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
-                    print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
-                    return
-                }
-                // Initialize a Firebase credential.
-                let credential = OAuthProvider.credential(withProviderID: "apple.com",
-                                                          idToken: idTokenString,
-                                                          rawNonce: nonce)
-                // Sign in with Firebase.
+                let credential = GoogleAuthProvider.credential(withIDToken: tokenString, accessToken: accessToken)
                 Auth.auth().signIn(with: credential) { (authResult, error) in
                     if error != nil {
                         print(error!.localizedDescription)
@@ -322,7 +144,7 @@ class LoginViewController: UIViewController, UITextViewDelegate, ASAuthorization
                             print(token ?? error)
                             guard let token = token else{
                                 DispatchQueue.main.async {
-                                UiUtils.showToast(message: "Failed getting access token")
+                                    UiUtils.showToast(message: "Failed getting access token")
                                 }
                                 return
                             }
@@ -330,37 +152,234 @@ class LoginViewController: UIViewController, UITextViewDelegate, ASAuthorization
                                 if(status){
                                     if(statuscode == 201){
                                         DispatchQueue.main.async {
-                                            let ChallengesStoryboard = UIStoryboard(name: "ChallengesStoryboard", bundle: nil)
-                                            let vc = ChallengesStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-                                        self.navigationController?.pushViewController(vc, animated: true)
+                                            self.PushToHome()
                                         }
                                     }
                                     else if(statuscode == 200){
                                         DispatchQueue.main.async {
-                                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Createprofile1ViewController") as! Createprofile1ViewController
-                                        self.navigationController?.pushViewController(vc, animated: true)
+                                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Createprofile1ViewController") as! Createprofile1ViewController
+                                            self.navigationController?.pushViewController(vc, animated: true)
                                         }
                                     }
                                     else{
-                                        DispatchQueue.main.async {
-                                        UiUtils.showToast(message: "Failed with error: \(statuscode)")
+                                        DispatchQueue.main.sync {
+                                            UiUtils.showToast(message: "Failed with error: \(statuscode)")
                                         }
+                                        GIDSignIn.sharedInstance.signOut()
                                         print(statuscode)
                                     }
                                 }
+                            }
+                        }
+                        // User is signed in to Firebase with Apple.
+                        
+                    }
+                }
+            }
+            else{
+                DispatchQueue.main.async {
+                    UiUtils.showToast(message: "Cancelled signing-in")
+                }
+            }
+        }
+    }
+    //    func signIn() {
+    //      // 1
+    //      if GIDSignIn.sharedInstance.hasPreviousSignIn() {
+    //        GIDSignIn.sharedInstance.restorePreviousSignIn { [unowned self] user, error in
+    //            authenticateUser(for: user, with: error)
+    //        }
+    //      } else {
+    //        // 2
+    //        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+    //
+    //        // 3
+    //        let configuration = GIDConfiguration(clientID: clientID)
+    //
+    //        // 4
+    //        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+    //        guard let rootViewController = windowScene.windows.first?.rootViewController else { return }
+    //
+    //        // 5
+    //          GIDSignIn.sharedInstance.signIn(withPresenting: self) { [unowned self] user, error in
+    //              authenticateUser(for: user?.user, with: error)
+    //        }
+    //      }
+    //    }
+    
+    //    private func authenticateUser(for user: GIDGoogleUser?, with error: Error?) {
+    //      // 1
+    //      if let error = error {
+    //        print(error.localizedDescription)
+    //        return
+    //      }
+    //
+    //      // 2
+    //        guard let authentication = user?.authentication, let idToken = authentication.idtoken else { return }
+    //
+    //      let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: authentication.accessToken)
+    //
+    //      // 3
+    //      Auth.auth().signIn(with: credential) { [unowned self] (_, error) in
+    //        if let error = error {
+    //          print(error.localizedDescription)
+    //        } else {
+    //          self.state = .signedIn
+    //        }
+    //      }
+    //    }
+    @IBAction func ActionButtonLoginApple(_ sender: Any) {
+        startSignInWithAppleFlow()
+    }
+    @IBAction func ActionButtonLoginEmail(_ sender: Any) {
+        print("ActionButtonLoginEmail")
+        let signinVC = storyboard?.instantiateViewController(withIdentifier: "SignInWithEmail") as! SignInWithEmailViewController
+        navigationController?.pushViewController(signinVC, animated: true)
+    }
+    
+    @IBAction func termsOfServiceBtnTap(_ sender: UIButton) {
+        let VC = storyboard?.instantiateViewController(withIdentifier: "LocalWebViewVC") as! LocalWebViewVC
+        VC.modalPresentationStyle = .fullScreen
+        VC.whatToShow = "termsAndConditions"
+        VC.headerLabelText = "FITOS Terms & Conditions"
+        //        self.present(VC, animated: true)
+        self.navigationController?.pushViewController(VC, animated: true)
+    }
+    
+    @IBAction func privacyPolicyBtnTap(_ sender: UIButton) {
+        let VC = storyboard?.instantiateViewController(withIdentifier: "LocalWebViewVC") as! LocalWebViewVC
+        VC.modalPresentationStyle = .fullScreen
+        VC.whatToShow = "privacyPolicy"
+        VC.headerLabelText = "FITOS Privacy Policy"
+        self.navigationController?.pushViewController(VC, animated: true)
+    }
+}
+extension LoginViewController:ASAuthorizationControllerDelegate{
+    private func randomNonceString(length: Int = 32) -> String {
+        precondition(length > 0)
+        let charset: [Character] =
+        Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
+        var result = ""
+        var remainingLength = length
+        
+        while remainingLength > 0 {
+            let randoms: [UInt8] = (0 ..< 16).map { _ in
+                var random: UInt8 = 0
+                let errorCode = SecRandomCopyBytes(kSecRandomDefault, 1, &random)
+                if errorCode != errSecSuccess {
+                    fatalError(
+                        "Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)"
+                    )
+                }
+                return random
+            }
+            
+            randoms.forEach { random in
+                if remainingLength == 0 {
+                    return
+                }
+                
+                if random < charset.count {
+                    result.append(charset[Int(random)])
+                    remainingLength -= 1
+                }
+            }
+        }
+        
+        return result
+    }
+    
+    private func sha256(_ input: String) -> String {
+        let inputData = Data(input.utf8)
+        let hashedData = SHA256.hash(data: inputData)
+        let hashString = hashedData.compactMap {
+            String(format: "%02x", $0)
+        }.joined()
+        
+        return hashString
+    }
+    
+    func startSignInWithAppleFlow() {
+        let nonce = randomNonceString()
+        currentNonce = nonce
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        request.nonce = sha256(nonce)
+        
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
+    }
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+            guard let nonce = currentNonce else {
+                fatalError("Invalid state: A login callback was received, but no login request was sent.")
+            }
+            guard let appleIDToken = appleIDCredential.identityToken else {
+                print("Unable to fetch identity token")
+                return
+            }
+            guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
+                print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
+                return
+            }
+            // Initialize a Firebase credential.
+            let credential = OAuthProvider.credential(withProviderID: "apple.com",
+                                                      idToken: idTokenString,
+                                                      rawNonce: nonce)
+            // Sign in with Firebase.
+            Auth.auth().signIn(with: credential) { (authResult, error) in
+                if error != nil {
+                    print(error!.localizedDescription)
+                    return
+                }
+                if let authResult = authResult{
+                    authResult.user.getIDToken { token, error in
+                        print(token ?? error)
+                        guard let token = token else{
+                            DispatchQueue.main.async {
+                                UiUtils.showToast(message: "Failed getting access token")
+                            }
+
+                            return
+                        }
+                        networkService.shared.SignIn(withToken: token) { status, statuscode in
+                            if(status){
+                                if(statuscode == 201){
+                                    DispatchQueue.main.async {
+                                        self.PushToHome()
+                                    }
+                                }
+                                else if(statuscode == 200){
+                                    DispatchQueue.main.async {
+                                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Createprofile1ViewController") as! Createprofile1ViewController
+                                        self.navigationController?.pushViewController(vc, animated: true)
+                                    }
+                                }
+                                else{
+                                    DispatchQueue.main.sync {
+                                        UiUtils.showToast(message: "Failed with error: \(statuscode)")
+                                    }
+                                    try! Auth.auth().signOut()
+                                    print(statuscode)
+                                }
+                            }
                         }
                     }
                     // User is signed in to Firebase with Apple.
                     
                 }
             }
-            }
-            
-            func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-                // Handle error.
-                print("Sign in with Apple errored: \(error)")
-            }
-            
+        }
+        
+        func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+            // Handle error.
+            print("Sign in with Apple errored: \(error)")
         }
         
     }
+    
+}

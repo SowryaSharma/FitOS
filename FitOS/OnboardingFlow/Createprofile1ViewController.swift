@@ -76,6 +76,8 @@ class Createprofile1ViewController: UIViewController, BottomViewGenderDelegate, 
     }
     
     @IBAction func skipBtnTap(_ sender: UIButton) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "Createprofile2ViewController") as! Createprofile2ViewController
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

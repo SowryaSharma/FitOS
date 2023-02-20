@@ -31,9 +31,6 @@ class SignInWithEmailViewController: UIViewController,UITextFieldDelegate {
         let vc = UIHostingController(rootView: exampleSwiftui())
         let swiftuiView = vc.view!
         view.addSubview(swiftuiView)
-        AuthenticationHandler.Shared.SignUpWithEmail(with: "sowryasharma@gmail.com", password: "password", controller: self) { results in
-            print(results)
-        }
         let gradient = CAGradientLayer()
         var bounds = SignInButton.bounds
     }
@@ -73,6 +70,7 @@ class SignInWithEmailViewController: UIViewController,UITextFieldDelegate {
                         print(token ?? error)
                         if( !Auth.auth().currentUser!.isEmailVerified) {
                            print("email not verified")
+//                            self.sendVerificationMail()
                           }
                         guard let token = token else{
                             DispatchQueue.main.async {
@@ -85,19 +83,19 @@ class SignInWithEmailViewController: UIViewController,UITextFieldDelegate {
                             if(status){
                             if(statuscode == 200){
                                 DispatchQueue.main.async {
-//                                    let ChallengesStoryboard = UIStoryboard(name: "ChallengesStoryboard", bundle: nil)
-//                                    let vc = ChallengesStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-//                                    self.navigationController?.pushViewController(vc, animated: true)
-//                                }
-//                            }
-//                            else if(statuscode == 201){
-//                                DispatchQueue.main.async {
+
+                                    self.PushToHome()
+                                }
+                            }
+                            else if(statuscode == 201){
+                                DispatchQueue.main.async {
                                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "Createprofile1ViewController") as! Createprofile1ViewController
                                 self.navigationController?.pushViewController(vc, animated: true)
                                 }
                             }
                             else{
                                 print(statuscode)
+                                UiUtils.showToast(message: "\(statuscode)")
                             }
                             }
                             else{
@@ -110,23 +108,39 @@ class SignInWithEmailViewController: UIViewController,UITextFieldDelegate {
             }
         }
         else{
-            DispatchQueue.main.sync {
-            guard let email = EmailTextField.text else{return}
-            guard let password = PasswordTextfield.text else{return}
-            }
-            guard let email = email else {
-                return
-            }
-            guard let password = password else {
-                return
-            }
+            print("Sign uping with email")
+                guard let email = self.EmailTextField.text else{return}
+                guard let password = self.PasswordTextfield.text else{return}
 
             AuthenticationHandler.Shared.SignUpWithEmail(with: email, password: password, controller: self) { authresults in
                 print(authresults?.user.email)
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "Createprofile1ViewController") as! Createprofile1ViewController
-                self.navigationController?.pushViewController(vc, animated: true)
+                if(authresults?.user.uid != nil){
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Createprofile1ViewController") as! Createprofile1ViewController
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                else{
+                    UiUtils.showToast(message: "Failed signing up with email")
+                }
             }
         }
+//        if( !Auth.auth().currentUser!.isEmailVerified) {
+//         print("Not verified email")
+//        }
+    }
+    public func sendVerificationMail() {
+        var authUser = Auth.auth().currentUser
+      if authUser != nil && !authUser!.isEmailVerified {
+        authUser!.sendEmailVerification(completion: { (error) in
+//            UiUtils.showToast(message: "Check Email for verification")
+        })
+      } else {
+        return
+      }
+    }
+    func PushToHome(){
+        let ChallengesStoryboard = UIStoryboard(name: "ChallengesStoryboard", bundle: nil)
+        let vc = ChallengesStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func actionButtonSignup(_ sender: Any) {
         if(sign_in){
