@@ -85,12 +85,13 @@ class SignInWithEmailViewController: UIViewController,UITextFieldDelegate {
                             if(status){
                             if(statuscode == 200){
                                 DispatchQueue.main.async {
-                                let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-                                self.navigationController?.pushViewController(vc, animated: true)
-                                }
-                            }
-                            else if(statuscode == 201){
-                                DispatchQueue.main.async {
+//                                    let ChallengesStoryboard = UIStoryboard(name: "ChallengesStoryboard", bundle: nil)
+//                                    let vc = ChallengesStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+//                                    self.navigationController?.pushViewController(vc, animated: true)
+//                                }
+//                            }
+//                            else if(statuscode == 201){
+//                                DispatchQueue.main.async {
                                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "Createprofile1ViewController") as! Createprofile1ViewController
                                 self.navigationController?.pushViewController(vc, animated: true)
                                 }

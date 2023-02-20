@@ -21,6 +21,8 @@ class ChallengesViewController: UIViewController,UICollectionViewDelegate,UIColl
     @IBOutlet weak var navigationButtonChat: UIButton!
     @IBOutlet weak var navigationButtonHelp: UIButton!
     @IBOutlet weak var MychallengesCollectionView: UICollectionView!
+    
+    @IBOutlet weak var MychallengesCollectionView2: UICollectionView!
     @IBOutlet weak var joinAndCreateButton: GradientButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +30,17 @@ class ChallengesViewController: UIViewController,UICollectionViewDelegate,UIColl
         MychallengesCollectionView.dataSource = self
         MychallengesCollectionView.register(MyChallengesCollectionViewCell.nib(), forCellWithReuseIdentifier: MyChallengesCollectionViewCell.identifier)
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
+        layout.scrollDirection = .horizontal
         layout.minimumLineSpacing =  10
         layout.itemSize = CGSize(width: 300, height: 120)
         MychallengesCollectionView.collectionViewLayout = layout
         self.MychallengesCollectionView.isPagingEnabled = true;
+        
+        MychallengesCollectionView2.delegate = self
+        MychallengesCollectionView2.dataSource = self
+        MychallengesCollectionView2.register(MyChallengesCollectionViewCell.nib(), forCellWithReuseIdentifier: MyChallengesCollectionViewCell.identifier)
+        MychallengesCollectionView2.collectionViewLayout = layout
+        self.MychallengesCollectionView2.isPagingEnabled = true;
         navigationButtonChat.setTitle("", for: .normal)
         navigationButtonHelp.setTitle("", for: .normal)
         joinAndCreateButton.layer.cornerRadius = 10
