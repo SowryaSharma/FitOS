@@ -31,8 +31,8 @@
 		69739B30299FD74D00BA3FFA /* createchallenge3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69739B2F299FD74D00BA3FFA /* createchallenge3ViewController.swift */; };
 		69739B32299FF0CB00BA3FFA /* challengedateDurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69739B31299FF0CB00BA3FFA /* challengedateDurationViewController.swift */; };
 		69739B34299FFBDB00BA3FFA /* SuccesfulscreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69739B33299FFBDB00BA3FFA /* SuccesfulscreenViewController.swift */; };
-		69739B36299FFE8B00BA3FFA /* SuccesfulscreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69739B35299FFE8B00BA3FFA /* SuccesfulscreenViewController.swift */; };
 		69739B3829A00EAC00BA3FFA /* challenge2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69739B3729A00EAC00BA3FFA /* challenge2ViewController.swift */; };
+		69739B5C29A3529D00BA3FFA /* HomeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69739B5B29A3529C00BA3FFA /* HomeProfileViewController.swift */; };
 		69AA853C299F3CF300FD1869 /* ToolTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AA853B299F3CF300FD1869 /* ToolTipView.swift */; };
 		69AA853E299F3D2D00FD1869 /* BottomViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AA853D299F3D2D00FD1869 /* BottomViewViewController.swift */; };
 		69BEB1CF299DFE9E00A8F248 /* UiUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BEB1CE299DFE9E00A8F248 /* UiUtils.swift */; };
@@ -85,8 +85,8 @@
 		69739B2F299FD74D00BA3FFA /* createchallenge3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createchallenge3ViewController.swift; sourceTree = "<group>"; };
 		69739B31299FF0CB00BA3FFA /* challengedateDurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = challengedateDurationViewController.swift; sourceTree = "<group>"; };
 		69739B33299FFBDB00BA3FFA /* SuccesfulscreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccesfulscreenViewController.swift; sourceTree = "<group>"; };
-		69739B35299FFE8B00BA3FFA /* SuccesfulscreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccesfulscreenViewController.swift; sourceTree = "<group>"; };
 		69739B3729A00EAC00BA3FFA /* challenge2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = challenge2ViewController.swift; sourceTree = "<group>"; };
+		69739B5B29A3529C00BA3FFA /* HomeProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProfileViewController.swift; sourceTree = "<group>"; };
 		69AA853B299F3CF300FD1869 /* ToolTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolTipView.swift; sourceTree = "<group>"; };
 		69AA853D299F3D2D00FD1869 /* BottomViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomViewViewController.swift; sourceTree = "<group>"; };
 		69BEB1CE299DFE9E00A8F248 /* UiUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiUtils.swift; sourceTree = "<group>"; };
@@ -158,6 +158,7 @@
 				696F1EE4299A40EB004D56E5 /* HomeViewController.swift */,
 				69AA853D299F3D2D00FD1869 /* BottomViewViewController.swift */,
 				69739B3729A00EAC00BA3FFA /* challenge2ViewController.swift */,
+				69739B5B29A3529C00BA3FFA /* HomeProfileViewController.swift */,
 			);
 			path = FitOS;
 			sourceTree = "<group>";
@@ -259,7 +260,6 @@
 				69739B2F299FD74D00BA3FFA /* createchallenge3ViewController.swift */,
 				69739B31299FF0CB00BA3FFA /* challengedateDurationViewController.swift */,
 				69739B33299FFBDB00BA3FFA /* SuccesfulscreenViewController.swift */,
-				69739B35299FFE8B00BA3FFA /* SuccesfulscreenViewController.swift */,
 			);
 			path = Challenges_flow;
 			sourceTree = "<group>";
@@ -409,7 +409,6 @@
 				69739B26299F836100BA3FFA /* Createchallengfe1ViewController.swift in Sources */,
 				69739B23299F7CDB00BA3FFA /* MoreChallemngesTableViewCell.swift in Sources */,
 				6912DB7C298FCA08006F8C03 /* LoginViewController.swift in Sources */,
-				69739B36299FFE8B00BA3FFA /* SuccesfulscreenViewController.swift in Sources */,
 				69739B30299FD74D00BA3FFA /* createchallenge3ViewController.swift in Sources */,
 				69739B32299FF0CB00BA3FFA /* challengedateDurationViewController.swift in Sources */,
 				6912DB78298FCA08006F8C03 /* AppDelegate.swift in Sources */,
@@ -421,6 +420,7 @@
 				69DDE6562994C9F4003900E6 /* AuthenticationHandler.swift in Sources */,
 				693F561F2995297700E61D7E /* exampleSwiftui.swift in Sources */,
 				69739B3829A00EAC00BA3FFA /* challenge2ViewController.swift in Sources */,
+				69739B5C29A3529D00BA3FFA /* HomeProfileViewController.swift in Sources */,
 				69BEB1DB299EA01800A8F248 /* JoinOrCreateChallengeViewController.swift in Sources */,
 				69739B34299FFBDB00BA3FFA /* SuccesfulscreenViewController.swift in Sources */,
 				693F56432996579600E61D7E /* Createprofile2ViewController.swift in Sources */,

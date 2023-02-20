@@ -71,6 +71,9 @@ class SignInWithEmailViewController: UIViewController,UITextFieldDelegate {
                 if let AuthResult = AuthResult {
                     AuthResult.user.getIDToken { token, error in
                         print(token ?? error)
+                        if( !Auth.auth().currentUser!.isEmailVerified) {
+                           print("email not verified")
+                          }
                         guard let token = token else{
                             DispatchQueue.main.async {
                             UiUtils.showToast(message: "Failed getting access token")
