@@ -12,21 +12,65 @@ import GoogleSignIn
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var navigationController:UINavigationController?
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        var isLoggedIn = false
         GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
-          if error != nil || user == nil {
-            // Show the app's signed-out state.
-              print("Not signed in")
-          } else {
-            // Show the app's signed-in state.
-              print("signed in")
-          }
+            if error != nil || user == nil {
+                print("Not signed in with google")
+                isLoggedIn = false
+            } else {
+                print("signed in with google")
+                isLoggedIn = true
+            }
         }
+        if Auth.auth().currentUser != nil {
+            print(Auth.auth().currentUser)
+            print("signed in")
+            isLoggedIn = true
+        }
+        else{
+            print("Not signed in")
+            isLoggedIn = false
+        }
+        let userDefaults = UserDefaults.standard
+        if userDefaults.value(forKey: "appFirstTimeOpend") == nil {
+            //if app is first time opened then it will be nil
+            userDefaults.setValue(true, forKey: "appFirstTimeOpend")
+            // signOut from Auth
+            do {
+                try Auth.auth().signOut()
+            }catch {
+                
+            }
+        } else {
+            
+        }
+        
+        
+//        if(isLoggedIn){
+//            loadHomeViewController()
+//        }
+//        else{
+//            LoadLoginScreen()
+//        }
         return true
+    }
+    func LoadLoginScreen(){
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        self.window?.rootViewController = main.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        navigationController = self.window?.rootViewController as? UINavigationController
+        self.window?.makeKeyAndVisible()
+    }
+    func loadHomeViewController(){
+        let ChallengesStoryboard = UIStoryboard(name: "ChallengesStoryboard", bundle: nil)
+        self.window?.rootViewController = ChallengesStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        navigationController = self.window?.rootViewController as? UINavigationController
+        self.window?.makeKeyAndVisible()
     }
     func applicationDidBecomeActive(_ application: UIApplication) {
     }
