@@ -39,6 +39,7 @@ class LoginViewController: UIViewController, UITextViewDelegate, ASAuthorization
     var tokenString:String?
     override func viewDidLoad() {
         super.viewDidLoad()
+        try! Auth.auth().signOut()
         setUI()
         setLayouts()
     }
@@ -57,6 +58,7 @@ class LoginViewController: UIViewController, UITextViewDelegate, ASAuthorization
             }
         }
         if Auth.auth().currentUser != nil {
+            print(Auth.auth().currentUser)
             print("signed in")
             self.isLoggedIn = true
         }
@@ -327,7 +329,7 @@ class LoginViewController: UIViewController, UITextViewDelegate, ASAuthorization
                                 if(status){
                                     if(statuscode == 201){
                                         DispatchQueue.main.async {
-                                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "OController") as! HomeViewController
                                         self.navigationController?.pushViewController(vc, animated: true)
                                         }
                                     }

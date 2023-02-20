@@ -1048,7 +1048,7 @@
             </objects>
             <point key="canvasLocation" x="66" y="-839"/>
         </scene>
-        <!--Reviews-->
+        <!--Profile-->
         <scene sceneID="4G8-aF-t7g">
             <objects>
                 <viewController storyboardIdentifier="HomeProfileViewController" id="d07-YX-zdS" customClass="HomeProfileViewController" customModule="FitOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -1058,7 +1058,7 @@
                         <viewLayoutGuide key="safeArea" id="hUh-bB-d3D"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Reviews" image="person.2" catalog="system" selectedImage="person.2" id="h2N-IU-5QH"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.2" catalog="system" selectedImage="person.2" id="h2N-IU-5QH"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1bu-GF-tUo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1835,7 +1835,7 @@
             <size key="intrinsicContentSize" width="62.5" height="31"/>
         </designable>
         <designable name="BqD-18-ZwZ">
-            <size key="intrinsicContentSize" width="138" height="24"/>
+            <size key="intrinsicContentSize" width="140" height="24"/>
         </designable>
         <designable name="DgO-ia-rC8">
             <size key="intrinsicContentSize" width="158" height="31"/>
@@ -1844,7 +1844,7 @@
             <size key="intrinsicContentSize" width="67" height="31"/>
         </designable>
         <designable name="Nz8-Bf-rPh">
-            <size key="intrinsicContentSize" width="91.5" height="29.5"/>
+            <size key="intrinsicContentSize" width="95.5" height="30"/>
         </designable>
         <designable name="QjF-zT-RoM">
             <size key="intrinsicContentSize" width="82.5" height="31"/>

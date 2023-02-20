@@ -28,6 +28,7 @@ class ChallengesViewController: UIViewController,UICollectionViewDelegate,UIColl
         MychallengesCollectionView.dataSource = self
         MychallengesCollectionView.register(MyChallengesCollectionViewCell.nib(), forCellWithReuseIdentifier: MyChallengesCollectionViewCell.identifier)
         let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
         layout.minimumLineSpacing =  10
         layout.itemSize = CGSize(width: 300, height: 120)
         MychallengesCollectionView.collectionViewLayout = layout

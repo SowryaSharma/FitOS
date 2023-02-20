@@ -17,15 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
-          if error != nil || user == nil {
-            // Show the app's signed-out state.
-              print("Not signed in")
-          } else {
-            // Show the app's signed-in state.
-              print("signed in")
-          }
-        }
         return true
     }
     func applicationDidBecomeActive(_ application: UIApplication) {
