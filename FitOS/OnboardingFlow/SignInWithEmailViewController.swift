@@ -20,11 +20,20 @@ class SignInWithEmailViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var EmailTextField: UITextField!
     @IBOutlet weak var SignInButton: GradientButton!
     @IBOutlet weak var HeaderImageview: UIImageView!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         EmailTextField.delegate = self
         PasswordTextfield.delegate = self
+        EmailTextField.tag = 1
+        PasswordTextfield.tag = 2
+        EmailTextField.returnKeyType = .next
+        EmailTextField.keyboardType = .emailAddress
+        EmailTextField.autocapitalizationType = .none
+        EmailTextField.autocorrectionType = .no
+        PasswordTextfield.returnKeyType = .done
         self.navigationController?.navigationBar.backItem?.title = "f"
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardDidShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardDidHideNotification, object: nil)
@@ -33,26 +42,49 @@ class SignInWithEmailViewController: UIViewController,UITextFieldDelegate {
         view.addSubview(swiftuiView)
         let gradient = CAGradientLayer()
         var bounds = SignInButton.bounds
+        self.hideKeyboardWhenTappedAround()
     }
-    
+    // Implement UITextFieldDelegate method to move to the next text field
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            if let nextTextField = view.viewWithTag(textField.tag + 1) as? UITextField {
+                nextTextField.becomeFirstResponder()
+            } else {
+                textField.resignFirstResponder()
+                
+            }
+            return true
+        }
+  
     @IBAction func backBtnTap(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        return true
-    }
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 48, right: 0.0)
+//        scrollView.contentInset = contentInsets
+//        scrollView.scrollIndicatorInsets = contentInsets
+//        var rect = textField.frame
+//        rect.size.height += 10
+//        scrollView.scrollRectToVisible(rect, animated: true)
+//    }
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
+//        scrollView.contentInset = contentInsets
+//        scrollView.scrollIndicatorInsets = contentInsets
+//    }
+
+
     @objc private func keyboardWillShow(notification: NSNotification){
         if(!isKeyboardPresent){
             isKeyboardPresent = true
             if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-                self.view.frame.origin.y -= keyboardSize.height
+                self.scrollView.frame.origin.y -= 0
             }
         }
     }
     
     @objc private func keyboardWillHide(notification: NSNotification){
         isKeyboardPresent = false
-        self.view.frame.origin.y = 0
+        self.scrollView.frame.origin.y = 0
     }
     @IBAction func ActionButtonSignIN(_ sender: Any) {
         if(sign_in){

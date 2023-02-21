@@ -52,6 +52,7 @@ class LoginViewController: UIViewController, UITextViewDelegate, ASAuthorization
         GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
             if error != nil || user == nil {
                 print("Not signed in with google")
+                self.isLoggedIn = false
             } else {
                 print("signed in with google")
                 self.isLoggedIn = true
@@ -64,6 +65,7 @@ class LoginViewController: UIViewController, UITextViewDelegate, ASAuthorization
         }
         else{
             print("Not signed in")
+            self.isLoggedIn = false
         }
         
         
@@ -150,12 +152,12 @@ class LoginViewController: UIViewController, UITextViewDelegate, ASAuthorization
                             }
                             networkService.shared.SignIn(withToken: token) { status, statuscode in
                                 if(status){
-                                    if(statuscode == 201){
+                                    if(statuscode == 200){
                                         DispatchQueue.main.async {
                                             self.PushToHome()
                                         }
                                     }
-                                    else if(statuscode == 200){
+                                    else if(statuscode == 201){
                                         DispatchQueue.main.async {
                                             let vc = self.storyboard?.instantiateViewController(withIdentifier: "Createprofile1ViewController") as! Createprofile1ViewController
                                             self.navigationController?.pushViewController(vc, animated: true)
@@ -348,12 +350,12 @@ extension LoginViewController:ASAuthorizationControllerDelegate{
                         }
                         networkService.shared.SignIn(withToken: token) { status, statuscode in
                             if(status){
-                                if(statuscode == 201){
+                                if(statuscode == 200){
                                     DispatchQueue.main.async {
                                         self.PushToHome()
                                     }
                                 }
-                                else if(statuscode == 200){
+                                else if(statuscode == 201){
                                     DispatchQueue.main.async {
                                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "Createprofile1ViewController") as! Createprofile1ViewController
                                         self.navigationController?.pushViewController(vc, animated: true)

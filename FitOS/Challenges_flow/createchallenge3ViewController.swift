@@ -7,13 +7,14 @@
 
 import UIKit
 
-class createchallenge3ViewController: UIViewController {
+class createchallenge3ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
 
     @IBOutlet weak var continuebutton: GradientButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         // Do any additional setup after loading the view.
+        self.hideKeyboardWhenTappedAround()
     }
     
 

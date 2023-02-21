@@ -13,9 +13,12 @@ class HomeProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let LogOutButton = GradientButton()
-        LogOutButton.setTitle("Log out", for: .normal)
+        LogOutButton.setTitle("Logout", for: .normal)
         LogOutButton.setTitleColor(.white, for: .normal)
-        LogOutButton.frame = CGRect(x: view.bounds.width - 100, y: 10, width: 90, height: 50)
+        LogOutButton.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
+        LogOutButton.layer.cornerRadius = 5
+        LogOutButton.center = view.center
+        LogOutButton.clipsToBounds = true
         LogOutButton.addTarget(self, action: #selector(Logout), for: .touchUpInside)
         view.addSubview(LogOutButton)
     }

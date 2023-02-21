@@ -15,7 +15,6 @@ class Createchallengfe1ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
-        ButtonCreate.layer.cornerRadius = 10
         LeaderBoardView.layer.cornerRadius = 1
     }
     
